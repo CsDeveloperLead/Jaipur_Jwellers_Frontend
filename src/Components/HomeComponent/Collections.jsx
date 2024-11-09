@@ -12,7 +12,7 @@ function Collections() {
                 <span className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl'>Our new Collections</span>
             </div>
             <div className='product-slider w-full h-auto overflow-x-scroll px-10 flex gap-6 m-10'>
-                <div onMouseEnter={() => setHoverNo('0')} onMouseLeave={() => setHoverNo('')} className='min-w-[70vw] h-auto pb-4 bg-gray-200 flex flex-col rounded-3xl p-1 md:h-[50vh] sm:min-w-[40vw] xl:h-[65vh] md:min-w-[30vw] lg:min-w-[25vw] 2xl:h-[58vh]'>
+                <div onMouseEnter={() => setHoverNo('0')} onMouseLeave={() => setHoverNo('')} className='min-w-[70vw] h-auto pb-4 bg-gray-200 flex flex-col rounded-3xl p-1 md:h-[45%] sm:min-w-[40vw] xl:h-[65%] md:min-w-[30vw] lg:min-w-[25vw] 2xl:h-[58%]'>
                     <img src="" alt="" className='w-full h-60 bg-gray-900 rounded-3xl xl:h-80' />
                     <div className='w-full h-auto flex justify-between mt-2 items-center px-2 xl:text-2xl'>
                         <span className='font-marcellus text-[#090909]'>Pearl Earrings</span>
@@ -28,7 +28,7 @@ function Collections() {
                         <span className='font-marcellus xl:text-lg'>₹1250</span>
                     </div>
                 </div>
-                <div onMouseEnter={() => setHoverNo('1')} onMouseLeave={() => setHoverNo('')} className='min-w-[70vw] h-auto pb-4 bg-gray-200 flex flex-col rounded-3xl p-1 md:h-[50vh] sm:min-w-[40vw] xl:h-[65vh] md:min-w-[30vw] lg:min-w-[25vw] 2xl:h-[58vh]'>
+                <div onMouseEnter={() => setHoverNo('1')} onMouseLeave={() => setHoverNo('')} className='min-w-[70vw] h-auto pb-4 bg-gray-200 flex flex-col rounded-3xl p-1 md:h-[45%] sm:min-w-[40vw] xl:h-[6%h] md:min-w-[30vw] lg:min-w-[25vw] 2xl:h-[58%]'>
                     <img src="" alt="" className='w-full h-60 bg-gray-900 rounded-3xl xl:h-80' />
                     <div className='w-full h-auto flex justify-between mt-2 items-center px-2 xl:text-2xl'>
                         <span className='font-marcellus text-[#090909]'>Pearl Earrings</span>
@@ -44,7 +44,7 @@ function Collections() {
                         <span className='font-marcellus xl:text-lg'>₹1250</span>
                     </div>
                 </div>
-                <div onMouseEnter={() => setHoverNo('2')} onMouseLeave={() => setHoverNo('')} className='min-w-[70vw] h-auto pb-4 bg-gray-200 flex flex-col rounded-3xl p-1 md:h-[50vh] sm:min-w-[40vw] xl:h-[65vh] md:min-w-[30vw] lg:min-w-[25vw] 2xl:h-[58vh]'>
+                <div onMouseEnter={() => setHoverNo('2')} onMouseLeave={() => setHoverNo('')} className='min-w-[70vw] h-auto pb-4 bg-gray-200 flex flex-col rounded-3xl p-1 md:h-[45%] sm:min-w-[40vw] xl:h-[65%] md:min-w-[30vw] lg:min-w-[25vw] 2xl:h-[58%]'>
                     <img src="" alt="" className='w-full h-60 bg-gray-900 rounded-3xl xl:h-80' />
                     <div className='w-full h-auto flex justify-between mt-2 items-center px-2 xl:text-2xl'>
                         <span className='font-marcellus text-[#090909]'>Pearl Earrings</span>
@@ -60,7 +60,7 @@ function Collections() {
                         <span className='font-marcellus xl:text-lg'>₹1250</span>
                     </div>
                 </div>
-                <div onMouseEnter={() => setHoverNo('3')} onMouseLeave={() => setHoverNo('')} className='min-w-[70vw] h-auto pb-4 bg-gray-200 flex flex-col rounded-3xl p-1 md:h-[50vh] sm:min-w-[40vw] xl:h-[65vh] md:min-w-[30vw] lg:min-w-[25vw] 2xl:h-[58vh]'>
+                <div onMouseEnter={() => setHoverNo('3')} onMouseLeave={() => setHoverNo('')} className='min-w-[70vw] h-auto pb-4 bg-gray-200 flex flex-col rounded-3xl p-1 md:h-[45%] sm:min-w-[40vw] xl:h-[65%] md:min-w-[30vw] lg:min-w-[25vw] 2xl:h-[58%]'>
                     <img src="" alt="" className='w-full h-60 bg-gray-900 rounded-3xl xl:h-80' />
                     <div className='w-full h-auto flex justify-between mt-2 items-center px-2 xl:text-2xl'>
                         <span className='font-marcellus text-[#090909]'>Pearl Earrings</span>
@@ -76,7 +76,7 @@ function Collections() {
                         <span className='font-marcellus xl:text-lg'>₹1250</span>
                     </div>
                 </div>
-                <div onMouseEnter={() => setHoverNo('4')} onMouseLeave={() => setHoverNo('')} className='min-w-[70vw] h-auto pb-4 bg-gray-200 flex flex-col rounded-3xl p-1 md:h-[50vh] sm:min-w-[40vw] xl:h-[65vh] md:min-w-[30vw] lg:min-w-[25vw] 2xl:h-[58vh]'>
+                <div onMouseEnter={() => setHoverNo('4')} onMouseLeave={() => setHoverNo('')} className='min-w-[70vw] h-auto pb-4 bg-gray-200 flex flex-col rounded-3xl p-1 md:h-[45%] sm:min-w-[40vw] xl:h-[65%] md:min-w-[30vw] lg:min-w-[25vw] 2xl:h-[58%]'>
                     <img src="" alt="" className='w-full h-60 bg-gray-900 rounded-3xl xl:h-80' />
                     <div className='w-full h-auto flex justify-between mt-2 items-center px-2 xl:text-2xl'>
                         <span className='font-marcellus text-[#090909]'>Pearl Earrings</span>

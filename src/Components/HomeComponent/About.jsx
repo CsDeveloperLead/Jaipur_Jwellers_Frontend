@@ -23,7 +23,7 @@ function About() {
                 </div>
                 <img src="" alt="" className='w-16 rounded-xl h-20 bg-gray-900 hidden md:block absolute bottom-24 right-24 lg:right-40 xl:right-60 2xl:right-80' />
             </div>
-            <div className='my-10 h-auto w-full overflow-x-scroll flex font-marcellus'>
+            <div className='product-slider my-10 h-auto w-full overflow-x-scroll flex font-marcellus lg:overflow-x-hidden'>
                 <div onMouseEnter={() => setHoverNo(0)} onMouseLeave={() => setHoverNo('')} className='min-w-full h-auto relative sm:min-w-[25vw] cursor-pointer'>
                     <img src="" alt="" className='w-full h-[70vh] bg-gray-400 lg:h-[90vh]' />
                     <div className='w-full h-auto px-6 flex flex-col absolute bottom-20 gap-2 z-40'>

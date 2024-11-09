@@ -3,14 +3,14 @@ import { GoHeart } from "react-icons/go";
 
 function Products() {
     return (
-        <div className='w-full h-auto flex pb-10'>
+        <div className='w-full h-auto flex pb-5 xl:pb-20'>
             <div className='w-full h-auto flex flex-col relative gap-5 xl:flex-row xl:gap-0'>
                 <div className='w-full h-auto flex flex-col xl:w-[60vw]'>
                     <div className='w-full h-auto flex flex-col font-marcellus justify-center text-2xl gap-1 px-5 sm:text-5xl sm:my-4 md:text-6xl xl:text-5xl 2xl:text-6xl xl:px-10'>
                         <span>Adorn Yourself in Elegance</span>
                         <span>with Exquisite Jewelry</span>
                     </div>
-                    <div className='w-full h-auto flex my-5 overflow-x-scroll gap-6 px-8 pb-10 xl:gap-3 xl:px-2 xl:overflow-hidden'>
+                    <div className='product-slider w-full h-auto flex my-5 overflow-x-scroll gap-6 px-8 pb-10 xl:gap-3 xl:px-2 xl:overflow-hidden'>
                         <div className='min-w-[70vw] bg-white p-2 shadow-md shadow-gray-400 rounded-xl h-auto flex flex-col mx-auto sm:min-w-[40vw] md:min-w-[28vw] xl:min-w-[19vw] 2xl:min-w-[18vw]'>
                             <img src="" alt="" className='w-full h-52 bg-gray-300 rounded-2xl' />
                             <div className='w-full h-auto flex justify-between mt-2 items-center px-2'>
@@ -75,6 +75,16 @@ function Products() {
                             </div>
                             <span className='text-[#090909] font-marcellus text-sm md:text-base'>₹1200</span>
                         </div>
+                    </div>
+                </div>
+                <div className='hidden xl:absolute xl:flex xl:p-1 xl:bg-white xl:rounded-lg xl:top-36 xl:shadow-md xl:right-[360px] '>
+                    <img src="" alt="" className='w-16 h-16 bg-gray-200 rounded-lg md:h-20 md:w-20 xl:w-16 xl:h-16' />
+                    <div className='w-auto h-auto flex flex-col px-4 justify-between pb-2:'>
+                        <div className='w-full h-auto flex flex-col'>
+                            <span className='font-marcellus text-sm md:text-lg xl:text-base'>Sapphire Necklace</span>
+                            <span className='font-bellota text-[#5A5A5A] text-xs md:text-sm xl:text-xs'>Exquisite elegance</span>
+                        </div>
+                        <span className='text-[#090909] font-marcellus text-sm md:text-base'>₹1300</span>
                     </div>
                 </div>
             </div>

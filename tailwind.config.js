@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        marcellus: ['Marcellus', 'serif'],
+        bellota: ['"Bellota Text"', 'cursive'], 
+      },
+    },
   },
   plugins: [],
 }

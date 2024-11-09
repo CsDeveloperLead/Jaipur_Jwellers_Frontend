@@ -12,6 +12,7 @@ import { LuMoveRight } from "react-icons/lu";
 import { LuMoveLeft } from "react-icons/lu";
 import Marquee from 'react-fast-marquee';
 import Shine from '../../assets/Images/shine.png'
+import { NavLink } from 'react-router-dom';
 
 function LandingPage() {
     return (
@@ -48,9 +49,9 @@ function LandingPage() {
                             <span>UNIQUENESS</span>
                         </div>
                         <div className='mt-5'>
-                            <p className='py-2 bg-[#1A3A37] text-white rounded-xl text-lg flex justify-center items-center gap-3 w-44 cursor-pointer'>
+                            <NavLink to='/about' className='py-2 bg-[#1A3A37] text-white rounded-xl text-lg flex justify-center items-center gap-3 w-44 cursor-pointer'>
                                 Know More <span className='w-7 h-7 bg-white flex justify-center items-center rounded-full'><FaArrowRightLong size={15} className='text-[#1A3A37]' /></span>
-                            </p>
+                            </NavLink>
                         </div>
                     </div>
                     <img src={Star1} alt="star 1" className='absolute top-10 left-16 sm:left-40 md:left-16 lg:top-7 lg:left-7 lg:w-7' />

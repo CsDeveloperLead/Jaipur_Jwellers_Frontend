@@ -3,17 +3,18 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { PiStorefrontLight } from "react-icons/pi";
+import { NavLink } from 'react-router-dom';
 
-function Header({color}) {
+function Header({ color }) {
     return (
         <header className='w-full h-16 items-center flex justify-between p-4' style={{ backgroundColor: color }}>
             <div className='font-marcellus'>Jwellery</div>
             <div className='hidden lg:flex lg:font-marcellus lg:gap-10 xl:gap-16 2xl:gap-20'>
-                <span className='cursor-pointer'>Home</span>
+                <NavLink to='/' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Home</NavLink>
                 <span className='cursor-pointer'>Collection</span>
                 <span className='cursor-pointer'>Shop</span>
                 <span className='cursor-pointer'>Blog</span>
-                <span className='cursor-pointer'>Contact Us</span>
+                <NavLink to='/contact-us' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Contact Us</NavLink>
             </div>
             <div className='hidden lg:flex lg:gap-5'>
                 <div className='w-auto flex items-center gap-6 justify-between'>

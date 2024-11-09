@@ -1,10 +1,9 @@
 import React from 'react'
-import LandingPage from './HomeComponent/LandingPage'
-import About from './HomeComponent/About'
-import Products from './HomeComponent/Products'
-import Collections from './HomeComponent/Collections'
-import Testimonial from './HomeComponent/Testimonial'
-import Footer from './HomeComponent/Footer'
+import LandingPage from './HomeComponents/LandingPage'
+import About from './HomeComponents/About'
+import Products from './HomeComponents/Products'
+import Collections from './HomeComponents/Collections'
+import Testimonial from './HomeComponents/Testimonial'
 
 function Home() {
     return (
@@ -14,7 +13,6 @@ function Home() {
         <Products />
         <Collections />
         <Testimonial />
-        <Footer />
         </>
     )
 }

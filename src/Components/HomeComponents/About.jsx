@@ -1,12 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Info from '../Utils/Info'
+import { NavLink } from 'react-router-dom'
 
-
-function About() {
+function About({ data }) {
     const [hoverNo, setHoverNo] = useState('')
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        setProducts(data.slice(0, 4))
+    }, [data])
+
 
     return (
-        <div className='w-full h-auto flex flex-col py-5'>
+        <div className='w-full h-auto flex flex-col py-5 bg-[#FAFAFA]'>
             <h1 className='font-marcellus tracking-[3px] text-center text-sm'>ABOUT OUR WENELUX</h1>
             <div className='w-full h-auto flex flex-col relative'>
                 <div className='w-full h-auto flex flex-col justify-center items-center font-marcellus text-xs my-10 md:my-20 md:text-xl md:gap-4 xl:text-2xl xl:gap-6 2xl:text-3xl'>
@@ -21,38 +27,18 @@ function About() {
                 <img src="" alt="" className='w-16 rounded-xl h-20 bg-gray-900 hidden md:block absolute bottom-24 right-24 lg:right-40 xl:right-60 2xl:right-80' />
             </div>
             <div className='product-slider my-10 h-auto w-full overflow-x-scroll flex font-marcellus lg:overflow-x-hidden'>
-                <div onMouseEnter={() => setHoverNo(0)} onMouseLeave={() => setHoverNo('')} className='min-w-full h-auto relative sm:min-w-[25vw] cursor-pointer'>
-                    <img src="" alt="" className='w-full h-[70vh] bg-gray-400 lg:h-[90vh]' />
-                    <div className='w-full h-auto px-6 flex flex-col absolute bottom-20 gap-2 z-40'>
-                        <span className={`${hoverNo === 0 ? 'text-center md:text-start' : 'text-center'} text-[#FFFFFF99] text-3xl font-semibold sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl `} >Necklaces</span>
-                        <span className={`${hoverNo === 0 ? ' hidden md:block md:text-[#FFFFFF99] text-xs xl:text-base' : 'hidden'}`}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam natus eos nobis ipsa vitae laborum deleniti enim, quaerat officia! Quos.</span>
-                    </div>
-                    <div className={`${hoverNo === 0 ? 'sm:absolute sm:inset-0 sm:bg-[#1A3A37] sm:z-10 sm:rounded-xl' : 'hidden'} `}></div>
-                </div>
-                <div onMouseEnter={() => setHoverNo(1)} onMouseLeave={() => setHoverNo('')} className='min-w-full h-auto relative sm:min-w-[25vw] cursor-pointer'>
-                    <img src="" alt="" className='w-full h-[70vh] bg-gray-400 lg:h-[90vh]' />
-                    <div className='w-full h-auto px-6 flex flex-col absolute bottom-20 gap-2 z-40'>
-                        <span className={`${hoverNo === 1 ? 'text-center md:text-start' : 'text-center'} text-[#FFFFFF99] text-3xl font-semibold sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl `} >Necklaces</span>
-                        <span className={`${hoverNo === 1 ? ' hidden md:block md:text-[#FFFFFF99] text-xs xl:text-base' : 'hidden'}`} >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam natus eos nobis ipsa vitae laborum deleniti enim, quaerat officia! Quos.</span>
-                    </div>
-                    <div className={`${hoverNo === 1 ? 'sm:absolute sm:inset-0 sm:bg-[#1A3A37] sm:z-10 sm:rounded-xl' : 'hidden'} `}></div>
-                </div>
-                <div onMouseEnter={() => setHoverNo(2)} onMouseLeave={() => setHoverNo('')} className='min-w-full h-auto relative sm:min-w-[25vw] cursor-pointer'>
-                    <img src="" alt="" className='w-full h-[70vh] bg-gray-400 lg:h-[90vh]' />
-                    <div className='w-full h-auto px-6 flex flex-col absolute bottom-20 gap-2 z-40'>
-                        <span className={`${hoverNo === 2 ? 'text-center md:text-start' : 'text-center'} text-[#FFFFFF99] text-3xl font-semibold sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl `} >Bracelets</span>
-                        <span className={`${hoverNo === 2 ? ' hidden md:block md:text-[#FFFFFF99] text-xs xl:text-base' : 'hidden'}`}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam natus eos nobis ipsa vitae laborum deleniti enim, quaerat officia! Quos.</span>
-                    </div>
-                    <div className={`${hoverNo === 2 ? 'sm:absolute sm:inset-0 sm:bg-[#1A3A37] sm:z-10 sm:rounded-xl' : 'hidden'} `}></div>
-                </div>
-                <div onMouseEnter={() => setHoverNo(3)} onMouseLeave={() => setHoverNo('')} className='min-w-full h-auto relative sm:min-w-[25vw] cursor-pointer'>
-                    <img src="" alt="" className='w-full h-[70vh] bg-gray-400 lg:h-[90vh]' />
-                    <div className='w-full h-auto px-6 flex flex-col absolute bottom-20 gap-2 z-30'>
-                        <span className={`${hoverNo === 3 ? 'text-center md:text-start' : 'text-center'} text-[#FFFFFF99] text-3xl font-semibold sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl `} >Pendants</span>
-                        <span className={`${hoverNo === 3 ? ' hidden md:block md:text-[#FFFFFF99] text-xs xl:text-base' : 'hidden'}`}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam natus eos nobis ipsa vitae laborum deleniti enim, quaerat officia! Quos.</span>
-                    </div>
-                    <div className={`${hoverNo === 3 ? 'sm:absolute sm:inset-0 sm:bg-[#1A3A37] sm:z-10 sm:rounded-xl' : 'hidden'} `}></div>
-                </div>
+                {
+                    products?.map((product, index) => (
+                        <NavLink state={{ product }} to={`/single-product/${product._id}`} key={index} onMouseEnter={() => setHoverNo(index)} onMouseLeave={() => setHoverNo('')} className='min-w-full h-auto relative sm:min-w-[25vw] cursor-pointer'>
+                            <img src="" alt="" className='w-full h-[70vh] bg-gray-400 lg:h-[90vh]' />
+                            <div className='w-full h-auto px-6 flex flex-col absolute bottom-20 gap-2 z-40'>
+                                <span className={`${hoverNo === index ? 'text-center md:text-start' : 'text-center'} text-[#FFFFFF99] text-3xl font-semibold sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl `} >{product.name}</span>
+                                <span className={`${hoverNo === index ? ' hidden md:block md:text-[#FFFFFF99] text-xs xl:text-base' : 'hidden'}`}>{product.desc.length > 100 ? product.desc.slice(0,100) : product.desc} {product.desc.length > 100 ? '....' : null } </span>
+                            </div>
+                            <div className={`${hoverNo === index ? 'sm:absolute sm:inset-0 sm:bg-[#1A3A37] sm:z-10 sm:rounded-xl' : 'hidden'} `}></div>
+                        </NavLink>
+                    ))
+                }
             </div>
             <Info />
         </div>

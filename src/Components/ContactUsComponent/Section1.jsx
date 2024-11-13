@@ -9,7 +9,7 @@ import { ImFacebook2 } from "react-icons/im";
 
 function Section1() {
     return (
-        <div className='w-full h-auto flex flex-col py-10 gap-8 md:flex-row lg:px-20 xl:py-20'>
+        <div className='w-full h-auto flex flex-col py-10 gap-8 md:flex-row lg:px-20 xl:py-20 bg-[#FAFAFA] '>
             <div className='w-full h-auto flex flex-col py-5 px-5 lg:pb-0'>
                 <span className='font-marcellus text-3xl sm:text-4xl'>Contact Us</span>
                 <span className='font-marcellus text-xs mt-2 text-[#A7A7A7] sm:text-sm md:text-xs xl:text-sm xl:mt-5'>Learn more about our products and services to get a better experience in shopping at our website. Please complete this form to get the latest information from us. Our Customer Service is available on 24/7. The information you provide will be confidential and not shared with third parties.</span>

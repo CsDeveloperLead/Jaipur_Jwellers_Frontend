@@ -2,10 +2,11 @@ import React from 'react'
 import LeftQuote from '../../assets/Images/leftQuote.png'
 import RightQuote from '../../assets/Images/rightQuote.png'
 import Star1 from '../../assets/Images/newStar.png'
+import BigStar from '../../assets/Images/bigStar.png'
 
 function Testimonial() {
     return (
-        <div className='w-full h-auto py-10 lg:py-20 xl:pt-44'>
+        <div className='w-full h-auto py-10 lg:py-20 xl:pt-44 bg-[#FAFAFA]'>
             <div className='w-full h-auto flex flex-col items-center md:justify-center md:flex-row relative'>
                 <div className='w-full h-auto flex flex-col px-5 lg:w-[60vw] lg:px-20'>
                     <span className='text-sm tracking-[10px] font-marcellus font-medium'>TESTIMONIAL</span>
@@ -24,7 +25,7 @@ function Testimonial() {
                 <div className='w-full h-[80vh] flex justify-center items-center relative md:h-[60vh] md:w-[50vw] lg:w-[40vw]'>
                     <img src="" alt="" className='w-[80%] h-[80%] bg-gray-200 rounded-xl sm:w-[50%] md:w-[80%] lg:w-[50%] xl:h-[90%]'/>
                     <img src={Star1} alt="star" className='w-10 h-10 absolute bottom-20 left-12 sm:left-44 md:left-10 md:bottom-12 lg:left-32 xl:left-40 2xl:bottom-10'/>
-                    <img src={Star1} alt="star" className='w-24 h-24 absolute top-10 right-10 sm:right-44 md:right-5 md:top-6 lg:right-28 lg:w-28 lg:h-28 lg:top-0 xl:right-32 xl:w-40 xl:h-40 xl:-top-5'/>
+                    <img src={BigStar} alt="star" className='w-24 h-24 absolute top-10 right-10 sm:right-44 md:right-5 md:top-6 lg:right-28 lg:w-28 lg:h-28 lg:top-0 xl:right-32 xl:w-40 xl:h-40 xl:-top-5'/>
                     <img src={Star1} alt="star" className='hidden md:block md:absolute md:top-0 md:w-5 md:h-5 md:right-20 lg:right-48 lg:w-8 lg:h-8 xl:right-60 lg:-top-10'/>
                 </div>
                 <div className='w-auto h-auto flex gap-2 items-center font-marcellus text-sm absolute top-64 md:top-[360px] lg:top-[420px] lg:text-xl'>

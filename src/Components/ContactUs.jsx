@@ -5,7 +5,7 @@ import Section1 from './ContactUsComponent/Section1'
 function ContactUs() {
   return (
     <>
-    <Header />
+    <Header color={'#FAFAFA'}  />
     <Section1 />
     </>
   )

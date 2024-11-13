@@ -13,3 +13,8 @@
 input[type="checkbox"]:checked {
   background-color: #16a34a;
 }
+
+
+html{
+  scroll-behavior: smooth;
+}

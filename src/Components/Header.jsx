@@ -9,7 +9,7 @@ function Header({ color }) {
     return (
         <header className='w-full h-16 items-center flex justify-between p-4' style={{ backgroundColor: color }}>
             <div className='font-marcellus'>Jwellery</div>
-            <div className='hidden lg:flex lg:font-marcellus lg:gap-10 xl:gap-16 2xl:gap-20'>
+            <div className='hidden lg:flex lg:font-marcellus lg:gap-10 lg:ml-20 xl:60 xl:gap-16 2xl:gap-20'>
                 <NavLink to='/' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Home</NavLink>
                 <span className='cursor-pointer'>Collection</span>
                 <NavLink to='/shop' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Shop</NavLink>

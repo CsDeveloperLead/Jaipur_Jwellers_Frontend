@@ -59,7 +59,7 @@ function SingleProduct() {
                     </div>
                     <div className='w-[95%] mx-auto h-auto rounded-3xl shadow-custom-shadow p-5 mt-4 border-[1px] border-[#1111111A] flex flex-col gap-6 sm:w-[85%] md:p-7 lg:w-[95%] lg:px-3 xl:w-full xl:py-6 xl:rounded-[50px]'>
                         <div className='w-full h-auto flex justify-between'>
-                            <div className='w-auto h-auto flex flex-col font-marcellus mr-2'>
+                            <div className='w-auto h-auto flex flex-col font-marcellus mr-2 lg:mr-0 lg:ml-3'>
                                 <span className='text-[#111111B2] text-sm sm:text-base md:text-lg lg:text-base'>Price</span>
                                 <span className='text-[#111111] text-lg sm:text-2xl md:text-3xl lg:text-2xl'>₹{product.quantityPrices[0].price}</span>
                             </div>

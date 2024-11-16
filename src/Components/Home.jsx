@@ -10,7 +10,7 @@ const backend = import.meta.env.VITE_BACKEND_URL
 
 function Home() {
     const [products, setProducts] = useState([])
-    const [loading,setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     async function fetchProducts() {
         try {
@@ -24,7 +24,7 @@ function Home() {
             console.log("error while fetching products", error);
             setLoading(true)
         }
-    }    
+    }
 
     useEffect(() => {
         fetchProducts()
@@ -34,7 +34,7 @@ function Home() {
         <>
             <LandingPage />
             <About data={products} />
-            <Products data={products}/>
+            <Products data={products} />
             <Collections data={products} />
             <Testimonial />
         </>

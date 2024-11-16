@@ -13,19 +13,29 @@ import { AuthProvider } from './Components/AuthContext.jsx'
 import SingleProduct from './Components/SingleProduct.jsx'
 import { CartProvider } from './Components/CartContext.jsx'
 import Shop from './Components/Shop.jsx'
+import AdminLogin from './Components/AdminLogin.jsx'
+import Dashboard from './Components/AdminComponents/Dashboard.jsx'
+import AllOrders from './Components/AdminComponents/AllOrders.jsx'
+import ViewProfile from './Components/ViewProfile.jsx'
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<App />}>
-      <Route path='/' element={<Home />} />
-      <Route path='/about' element={<About />} />
-      <Route path='/contact-us' element={<ContactUs />} />
-      <Route path='/my-cart' element={<MyCart />} />
-      <Route path='/my-cart/checkout' element={<Checkout />} />
-      <Route path='/single-product/:id' element={<SingleProduct />} />
-      <Route path='/shop' element={<Shop />} />
-    </Route>
+    <>
+      <Route path='/' element={<App />}>
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/contact-us' element={<ContactUs />} />
+        <Route path='/my-cart' element={<MyCart />} />
+        <Route path='/my-cart/checkout' element={<Checkout />} />
+        <Route path='/single-product/:id' element={<SingleProduct />} />
+        <Route path='/shop' element={<Shop />} />
+      </Route>
+      <Route path='/admin' element={<AdminLogin />} />
+      <Route path='/dashboard' element={<Dashboard />} />
+      <Route path='/view-orders' element={<AllOrders />} />
+      <Route path='/view-profile' element={<ViewProfile />} />
+    </>
   )
 )
 

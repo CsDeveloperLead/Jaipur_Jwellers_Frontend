@@ -71,7 +71,7 @@ function Shop() {
                             {
                                 products?.map((product, index) => (
                                     <NavLink state={{ product }} to={`/single-product/${product._id}`} key={index} className='w-[300px] h-auto flex flex-col mx-auto bg-[#FEFDFD] p-1 rounded-[29px] gap-2 lg:p-1.5 cursor-pointer'>
-                                        <img src="" alt="" className='w-full h-[200px] mx-auto bg-gray-400 rounded-[30px] lg:h-[250px]' />
+                                        <img src={product?.Image} alt="image" className='w-full h-[200px] mx-auto bg-gray-400 object-cover rounded-[30px] lg:h-[250px]' />
                                         <div className='w-full h-auto flex flex-col mt-2 items-center px-3 lg:mt-3'>
                                             <div className='w-full h-auto flex justify-between items-center'>
                                                 <span className='font-marcellus text-2xl'>{product.name}</span>

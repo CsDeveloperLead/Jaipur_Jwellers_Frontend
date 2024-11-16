@@ -44,20 +44,20 @@ function SingleProduct() {
                 <span className='text-[#344E41]'>{product.name}</span>
             </div>
             <div className='w-full h-auto flex flex-col gap-7 py-10 bg-[#FAFAFA] lg:flex-row xl:px-10 2xl:px-20'>
-                <div className='w-full h-auto flex flex-col lg:w-[600px] xl:w-[650px] xl:gap-10'>
+                <div className='w-full h-auto flex flex-col lg:w-[600px] xl:w-[840px] xl:gap-10'>
                     <div className='w-full h-auto flex flex-col gap-3'>
                         <div className='w-[90%] h-auto mx-auto md:w-[80%] lg:w-[90%] xl:h-[400px]'>
-                            <img src="" alt="" className='w-full h-80 bg-gray-300 rounded-3xl xl:h-full xl:rounded-[50px]' />
+                            <img src={product?.Image} alt="main image" className='w-full h-80 bg-gray-300 rounded-3xl object-cover xl:h-full xl:rounded-[50px]' />
                         </div>
                         <div className='product-slider w-full h-auto flex gap-3 px-3 overflow-x-scroll sm:justify-center'>
-                            <img src="" alt="" className='w-20 h-20 bg-gray-300 rounded-xl sm:w-24 sm:h-24 lg:w-20 lg:h-20' />
-                            <img src="" alt="" className='w-20 h-20 bg-gray-300 rounded-xl sm:w-24 sm:h-24 lg:w-20 lg:h-20' />
-                            <img src="" alt="" className='w-20 h-20 bg-gray-300 rounded-xl sm:w-24 sm:h-24 lg:w-20 lg:h-20' />
-                            <img src="" alt="" className='w-20 h-20 bg-gray-300 rounded-xl sm:w-24 sm:h-24 lg:w-20 lg:h-20' />
-                            <img src="" alt="" className='w-20 h-20 bg-gray-300 rounded-xl sm:w-24 sm:h-24 lg:w-20 lg:h-20' />
+                            <img src={product?.Image1} alt="" className='w-20 h-20 bg-gray-300 rounded-xl object-cover sm:w-24 sm:h-24 lg:w-20 lg:h-20' />
+                            <img src={product?.Image2} alt="" className='w-20 h-20 bg-gray-300 rounded-xl object-cover sm:w-24 sm:h-24 lg:w-20 lg:h-20' />
+                            <img src={product?.Image3} alt="" className='w-20 h-20 bg-gray-300 rounded-xl object-cover sm:w-24 sm:h-24 lg:w-20 lg:h-20' />
+                            {/* <img src="" alt="" className='w-20 h-20 bg-gray-300 rounded-xl sm:w-24 sm:h-24 lg:w-20 lg:h-20' /> */}
+                            {/* <img src="" alt="" className='w-20 h-20 bg-gray-300 rounded-xl sm:w-24 sm:h-24 lg:w-20 lg:h-20' /> */}
                         </div>
                     </div>
-                    <div className='w-[95%] mx-auto h-auto rounded-3xl shadow-custom-shadow p-5 mt-4 border-[1px] border-[#1111111A] flex flex-col gap-6 sm:w-[85%] md:p-7 lg:w-[95%] lg:px-3 xl:w-full xl:py-6 xl:rounded-[50px]'>
+                    <div className='w-[95%] mx-auto h-auto rounded-3xl shadow-custom-shadow p-5 mt-4 border-[1px] border-[#1111111A] flex flex-col gap-6 sm:w-[85%] md:p-7 lg:w-[95%] xl:w-full xl:py-6 xl:rounded-[50px]'>
                         <div className='w-full h-auto flex justify-between'>
                             <div className='w-auto h-auto flex flex-col font-marcellus mr-2 lg:mr-0 lg:ml-3'>
                                 <span className='text-[#111111B2] text-sm sm:text-base md:text-lg lg:text-base'>Price</span>
@@ -119,36 +119,37 @@ function SingleProduct() {
                             <div className='w-full h-auto flex flex-col font-marcellus gap-3 md:gap-6'>
                                 <span className='text-[#111111] text-xl sm:text-2xl md:text-3xl lg:text-2xl'>Model</span>
                                 <ul className='text-sm list-disc list-inside sm:text-base md:text-lg lg:text-base xl:text-lg'>
-                                    <li>W70 x D80 x H85 cm</li>
+                                    <li>{product.model}</li>
                                 </ul>
                             </div>
                             <div className='w-full h-auto flex flex-col font-marcellus gap-3 md:gap-6'>
                                 <span className='text-[#111111] text-xl sm:text-2xl md:text-3xl lg:text-2xl'>Details</span>
-                                <ul className='text-sm list-disc list-inside sm:text-base md:text-lg lg:text-base xl:text-lg'>
-                                    <li>Doweled mortise and tenon frame in solid Mahogany from certified source.</li>
-                                    <li>Solid certified Mahogany.</li>
-                                    <li>Available in a selection of finishes.</li>
-                                    <li>Tigh-density upholstery fill.</li>
-                                </ul>
+                                {
+                                    product.details.map((item, index) => (
+                                        <ul key={index} className='text-sm list-disc list-inside sm:text-base md:text-lg lg:text-base xl:text-lg'>
+                                            <li>{item}</li>
+                                        </ul>
+                                    )
+                                    )}
                             </div>
                             <div className='w-full h-auto flex flex-col font-marcellus gap-3 md:gap-6'>
                                 <span className='text-[#111111] text-xl sm:text-2xl md:text-3xl lg:text-2xl'>Additional Info</span>
                                 <div className='w-full h-auto flex flex-wrap items-center font-marcellus gap-3 text-sm sm:text-base md:text-lg lg:text-base xl:text-lg'>
                                     <div className='w-auto h-auto flex gap-1 items-center border-r-[1px] border-[#1111114D] px-4'>
                                         <span className='text-[#111111B2]'>Weight :</span>
-                                        <span className='text-[##111111E5]'>54cm</span>
+                                        <span className='text-[##111111E5]'>{product.weight}</span>
                                     </div>
                                     <div className='w-auto h-auto flex gap-1 items-center px-4'>
                                         <span className='text-[#111111B2]'>Width :</span>
-                                        <span className='text-[##111111E5]'>67cm</span>
+                                        <span className='text-[##111111E5]'>{product.width}</span>
                                     </div>
                                     <div className='w-auto h-auto flex gap-1 items-center border-r-[1px] border-[#1111114D] px-5'>
                                         <span className='text-[#111111B2]'>Depth :</span>
-                                        <span className='text-[##111111E5]'>54cm</span>
+                                        <span className='text-[##111111E5]'>{product.depth}</span>
                                     </div>
                                     <div className='w-auto h-auto flex gap-1 items-center px-4'>
                                         <span className='text-[#111111B2]'>Height :</span>
-                                        <span className='text-[##111111E5]'>40cm</span>
+                                        <span className='text-[##111111E5]'>{product.height}</span>
                                     </div>
                                 </div>
                             </div>

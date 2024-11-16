@@ -21,7 +21,7 @@ function Collections({ data }) {
                     products.length > 0
                         ? products.map((product, index) => (
                             <NavLink state={{ product }} to={`/single-product/${product._id}`} key={index} onMouseEnter={() => setHoverNo(index)} onMouseLeave={() => setHoverNo('')} className={`${hoverNo === index ? 'md:h-[340px] xl:h-[450px]' : 'md:h-[310px] xl:h-[400px]'} min-w-[70vw] h-auto pb-4 bg-gray-200 flex flex-col rounded-3xl p-1 sm:min-w-[40vw] md:min-w-[30vw] lg:min-w-[25vw] `}>
-                                <img src="" alt="" className='w-full h-60 bg-gray-900 rounded-3xl xl:h-80' />
+                                <img src={product?.Image} alt="image" className='w-full h-60 bg-gray-900 rounded-3xl xl:h-[470px]' />
                                 <div className='w-full h-auto flex justify-between mt-2 items-center px-2 xl:text-2xl'>
                                     <span className='font-marcellus text-[#090909]'>{product.name}</span>
                                     <GoHeart size={20} className='text-[#B3B3B3] xl:size-6' />

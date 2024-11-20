@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import LandingPage from './HomeComponents/LandingPage'
 import About from './HomeComponents/About'
 import Products from './HomeComponents/Products'

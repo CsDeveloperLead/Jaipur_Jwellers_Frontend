@@ -1,5 +1,5 @@
-import React from 'react'
-import Home from './Components/Home'
+// import React from 'react'
+// import Home from './Components/Home'
 import Footer from './Components/Footer'
 import { Outlet } from 'react-router-dom'
 

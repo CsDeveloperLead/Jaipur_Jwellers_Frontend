@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { GoHeart } from "react-icons/go";
 import { NavLink } from 'react-router-dom';
 
@@ -7,8 +7,8 @@ function Products({ data }) {
     const [floatingProducts, setFloatingProdcuts] = useState([])
 
     useEffect(() => {
-        setProducts(data.slice(0, 3))
-        setFloatingProdcuts(data.slice(0, 5))
+        setProducts(data?.slice(0, 3))
+        setFloatingProdcuts(data?.slice(0, 5))
     }, [data])
 
     return (

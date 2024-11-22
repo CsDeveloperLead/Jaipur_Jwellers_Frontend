@@ -17,6 +17,9 @@ import AdminLogin from './Components/AdminLogin.jsx'
 import Dashboard from './Components/AdminComponents/Dashboard.jsx'
 import AllOrders from './Components/AdminComponents/AllOrders.jsx'
 import ViewProfile from './Components/ViewProfile.jsx'
+import Login from './Components/Login.jsx'
+import SignUp from './Components/SignUp.jsx'
+import ForgotPassword from './Components/ForgotPassword.jsx'
 
 
 const router = createBrowserRouter(
@@ -30,6 +33,9 @@ const router = createBrowserRouter(
         <Route path='/my-cart/checkout' element={<Checkout />} />
         <Route path='/single-product/:id' element={<SingleProduct />} />
         <Route path='/shop' element={<Shop />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup-page' element={<SignUp />} />
+        <Route path='/forgot-password' element={<ForgotPassword />} />
       </Route>
       <Route path='/admin' element={<AdminLogin />} />
       <Route path='/dashboard' element={<Dashboard />} />

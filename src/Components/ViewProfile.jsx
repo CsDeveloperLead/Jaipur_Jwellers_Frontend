@@ -6,17 +6,27 @@ import axios from 'axios';
 
 const backend = import.meta.env.VITE_BACKEND_URL
 function ViewProfile() {
+    const [errors, setError] = useState('')
     const [orders, setOrders] = useState([])
+    const [user, setUser] = useState({
+        email: "",
+        name:""
+    })
 
     useEffect(() => {
         // Retrieve the token from localStorage (or any storage where it's stored)
         const token = localStorage.getItem('authToken'); // Assuming token is stored in localStorage
-        let userEmail = '';
 
         // Decode the token to extract the email
         if (token) {
             const decodedToken = jwtDecode(token);
-            userEmail = decodedToken.email; // Extracting email from the decoded token
+
+            const { email, name } = decodedToken; // Extracting email from the decoded token
+            setUser({
+                email: email,
+                name: name
+            })
+
         }
 
         // Fetch orders when the component loads
@@ -46,9 +56,9 @@ function ViewProfile() {
                 </div>
                 <div className='w-full h-auto flex flex-col'>
                     <h1 className='text-center text-[#1A3A37] font-marcellus text-2xl font-semibold'>Profile</h1>
-                    <div className='w-full h-auto flex justify-center items-center gap-5 mt-8 md:gap-10 font-marcellus'>
-                        <div className='flex gap-1 md:text-lg'><span className='font-semibold text-black'>Name :</span>Admin</div>
-                        <div className='flex gap-1 md:text-lg'><span className='font-semibold text-black'>Email :</span>Admin</div>
+                    <div className='w-full h-auto flex flex-wrap justify-center items-center gap-5 mt-8 md:gap-10 font-marcellus'>
+                        <div className='flex gap-1 md:text-lg'><span className='font-semibold text-black'>Name :</span>{user?.name}</div>
+                        <div className='flex gap-1 md:text-lg'><span className='font-semibold text-black'>Email :</span>{user?.email}</div>
                     </div>
                 </div>
                 <div className='w-full h-2 bg-gray-400 mt-14 mb-10'></div>

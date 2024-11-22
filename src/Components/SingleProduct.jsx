@@ -17,6 +17,8 @@ function SingleProduct() {
     const [isAddedToCart, setIsAddedToCart] = useState(false);
     const [quantity, setQuantity] = useState(1);
     const [selectedQuantityPrice, setSelectedQuantityPrice] = useState(product.quantityPrices[0]);
+    const [productImages, setProductImages] = useState([product?.Image, product?.Image1, product?.Image2, product?.Image3])
+    const [mainImage, setMainImage] = useState('' || product?.Image)
 
     const handleAddToCart = () => {
         addToCart({
@@ -47,14 +49,14 @@ function SingleProduct() {
                 <div className='w-full h-auto flex flex-col lg:w-[600px] xl:w-[840px] xl:gap-10'>
                     <div className='w-full h-auto flex flex-col gap-3'>
                         <div className='w-[90%] h-auto mx-auto md:w-[80%] lg:w-[90%] xl:h-[400px]'>
-                            <img src={product?.Image} alt="main image" className='w-full h-80 bg-gray-300 rounded-3xl object-cover xl:h-full xl:rounded-[50px]' />
+                            <img src={mainImage} alt="main image" className='w-full h-80 bg-gray-300 rounded-3xl object-cover xl:h-full xl:rounded-[50px]' />
                         </div>
                         <div className='product-slider w-full h-auto flex gap-3 px-3 overflow-x-scroll sm:justify-center'>
-                            <img src={product?.Image1} alt="" className='w-20 h-20 bg-gray-300 rounded-xl object-cover sm:w-24 sm:h-24 lg:w-20 lg:h-20' />
-                            <img src={product?.Image2} alt="" className='w-20 h-20 bg-gray-300 rounded-xl object-cover sm:w-24 sm:h-24 lg:w-20 lg:h-20' />
-                            <img src={product?.Image3} alt="" className='w-20 h-20 bg-gray-300 rounded-xl object-cover sm:w-24 sm:h-24 lg:w-20 lg:h-20' />
-                            {/* <img src="" alt="" className='w-20 h-20 bg-gray-300 rounded-xl sm:w-24 sm:h-24 lg:w-20 lg:h-20' /> */}
-                            {/* <img src="" alt="" className='w-20 h-20 bg-gray-300 rounded-xl sm:w-24 sm:h-24 lg:w-20 lg:h-20' /> */}
+                            {
+                                productImages.map((image, index) => (
+                                    <img key={index} src={image} alt="product image" onClick={() => setMainImage(image)} className={`${mainImage === image ? 'border-2 border-[#344E41]' : ''} cursor-pointer w-20 h-20 bg-gray-300 rounded-xl object-cover sm:w-24 sm:h-24 lg:w-20 lg:h-20 `} />
+                                ))
+                            }
                         </div>
                     </div>
                     <div className='w-[95%] mx-auto h-auto rounded-3xl shadow-custom-shadow p-5 mt-4 border-[1px] border-[#1111111A] flex flex-col gap-6 sm:w-[85%] md:p-7 lg:w-[95%] xl:w-full xl:py-6 xl:rounded-[50px]'>

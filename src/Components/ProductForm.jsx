@@ -95,13 +95,26 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
         });
 
         try {
-            const response = await axios.post(`${backend}/api/v1/products/create-product`, data)
-            console.log(response);
+            const url = product
+                ? `${backend}/api/v1/products/update-product/${product.product_id}`
+                : `${backend}/api/v1/products/create-product`
 
+            const method = product ? "put" : "post";
 
-            if (response.status === 201) {
-                alert("Product created successfully")
-                closePopup()
+            const res = await axios({
+                method,
+                url,
+                data,
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+
+            if (res.status === 200 || res.status === 201) {
+                alert(product ? "Product updated successfully!" : "Product created successfully!");
+                refreshProducts();
+                closePopup();
             }
 
         } catch (error) {
@@ -119,7 +132,7 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                 category: product.category,
                 countInStock: product.countInStock,
                 quantityPrices: product.quantityPrices?.length > 0 ? product.quantityPrices : [{ quantity: "", price: 0 }],
-                details: product.details?.length > 0 ? product.details : [""],
+                details: Array.isArray(product.details) && product.details.length > 0 ? product.details : [""],
                 model: product.model,
                 width: product.width,
                 height: product.height,

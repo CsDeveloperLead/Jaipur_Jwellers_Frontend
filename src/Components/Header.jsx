@@ -148,7 +148,7 @@ function Header({ color }) {
                                 <span className='hidden lg:block lg:px-4 lg:py-2 lg:rounded-xl lg:font-marcellus lg:bg-[#1A3A37] lg:text-white 2xl:px-5 lg:cursor-pointer'>Get Special Offers</span>
                             </div>
                         </>
-                        : <NavLink to='/login' className='w-auto h-auto flex px-10 py-1.5 bg-[#1A3A37] text-white font-semibold font-marcellus rounded-md cursor-pointer'>
+                        : isAuthenticated === false && <NavLink to='/login' className='w-auto h-auto flex px-10 py-1.5 bg-[#1A3A37] text-white font-semibold font-marcellus rounded-md cursor-pointer'>
                             Login
                         </NavLink>
                 }

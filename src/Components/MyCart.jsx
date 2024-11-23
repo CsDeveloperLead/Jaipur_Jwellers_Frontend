@@ -7,10 +7,14 @@ import { CartContext } from './CartContext';
 import AuthContext from './AuthContext';
 
 function MyCart() {
-    const { cartItems, addToCart, removeFromCart, getCartTotal } = useContext(CartContext);
+    const { cartItems, addToCart, removeFromCart, getCartTotal, clearCart } = useContext(CartContext);
     const mainPrice = getCartTotal()
     const navigate = useNavigate()
     const { isAuthenticated } = useContext(AuthContext);
+
+    function clearAllCartItems(){
+        clearCart()
+    }
 
     const handleCheckoutClick = () => {
         if (isAuthenticated) {
@@ -49,8 +53,7 @@ function MyCart() {
                 <div className='my-10 w-full h-auto flex flex-col gap-4 md:flex-row xl:px-24 pb-10 xl:pb-20'>
                     <div className='w-full h-auto flex flex-col px-5'>
                         <div className='w-full h-auto flex gap-3 text-[#A7A7A7] font-marcellus mb-5'>
-                            <input type="checkbox" name="" id="selectall" />
-                            <label htmlFor="selectall">Select All</label>
+                            <span onClick={clearAllCartItems} className='cursor-pointer active:text-[#1A3A37] md:hover:text-[#1A3A37]'>Clear All</span>
                         </div>
                         <div className='w-full h-[1px] bg-[#1A3A37]'></div>
                         <div className='w-full h-auto flex flex-col gap-3'>
@@ -59,10 +62,7 @@ function MyCart() {
                                     ? cartItems.map((item, index) => (
                                         <div key={index} className='w-full h-auto flex flex-col'>
                                             <div className='w-full h-auto flex  py-4'>
-                                                <div className='h-auto flex justify-center items-center mr-3'>
-                                                    <input type="checkbox" name="" id="" />
-                                                </div>
-                                                <img src="" alt="" className='w-20 h-20 bg-gray-300 sm:w-32 sm:h-28 lg:w-44 lg:h-36' />
+                                                <img src={item.Image} alt="product Image" className='w-20 h-20 object-cover sm:w-32 sm:h-28 lg:w-44 lg:h-36' />
                                                 <div className='w-full h-auto flex justify-between items-center pl-3 lg:pl-8'>
                                                     <div className='w-auto h-full flex flex-1 flex-col font-marcellus justify-between'>
                                                         <div className='w-full h-auto flex flex-col text-sm lg:text-lg'>

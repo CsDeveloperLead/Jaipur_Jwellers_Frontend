@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import { FaBarsStaggered } from "react-icons/fa6";
-import { CiSearch } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { PiStorefrontLight } from "react-icons/pi";
 import { NavLink, useLocation } from 'react-router-dom';
@@ -24,10 +23,12 @@ function Header({ color }) {
     const [sideBar, setSideBar] = useState(false)
     const [dropdown, setDropDown] = useState(false)
     const [dropdown2, setDropDown2] = useState(false)
-    const dropdownRef = useRef(null)
-    const { clearCart } = useContext(CartContext)
+    const { clearCart, cartItems } = useContext(CartContext)
     const location = useLocation()
     const [inHome, setInHome] = useState(false)
+
+    const dropdownRef = useRef(null)
+    const dropdownRef2 = useRef(null)
 
     function handleDropDown() {
         setDropDown(!dropdown)
@@ -41,7 +42,6 @@ function Header({ color }) {
         clearCart();
         logout();
     }
-
     useEffect(() => {
         const token = localStorage.getItem("authToken")
         if (token) {
@@ -54,6 +54,8 @@ function Header({ color }) {
         const handleOutsideClick = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setDropDown(false);
+            }
+            if (dropdownRef2.current && !dropdownRef2.current.contains(event.target)) {
                 setDropDown2(false)
             }
         };
@@ -134,9 +136,10 @@ function Header({ color }) {
                         ? <>
                             <div className='flex gap-7'>
                                 <div className='flex gap-5 items-center'>
-                                    <CiSearch size={20} />
-                                    <div ref={dropdownRef} className='w-auto h-auto flex items-center justify-center'>
-                                        <CiUser onClick={handleDropDown2} size={20} />
+                                    <div ref={dropdownRef2} className='w-auto h-auto flex items-center justify-center'>
+                                        <span onClick={handleDropDown2} className='p-1.5 bg-gray-200 rounded-full active:bg-gray-100 md:hover:bg-gray-100 cursor-pointer'>
+                                            <CiUser size={20} />
+                                        </span>
                                         {dropdown2 && (
                                             <div className={`${inHome ? 'top-12' : 'top-12'} absolute right-10 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 lg:right-40 `}>
                                                 <NavLink
@@ -156,7 +159,10 @@ function Header({ color }) {
                                             </div>
                                         )}
                                     </div>
-                                    <NavLink to='/my-cart'><PiStorefrontLight size={20} /></NavLink>
+                                    <NavLink to='/my-cart' className='p-1.5 bg-gray-200 rounded-full active:bg-gray-100 md:hover:bg-gray-100 cursor-pointer relative'>
+                                        <span className='absolute top-[-10px] text-sm right-1'>{cartItems.length}</span>
+                                        <PiStorefrontLight size={20} />
+                                    </NavLink>
                                 </div>
                                 <div className='lg:hidden'> {sideBar ? <IoClose size={25} onClick={() => setSideBar(false)} className='cursor-pointer' /> : <FaBarsStaggered size={25} onClick={() => setSideBar(true)} className='cursor-pointer' />} </div>
                                 <span className='hidden lg:block lg:px-4 lg:py-2 lg:rounded-xl lg:font-marcellus lg:bg-[#1A3A37] lg:text-white 2xl:px-5 lg:cursor-pointer'>Get Special Offers</span>
@@ -167,7 +173,7 @@ function Header({ color }) {
                         </NavLink>
                 }
 
-            </header>
+            </header >
             <div className={`${sideBar ? 'translate-x-0' : 'translate-x-80'} fixed w-52 h-full bg-[#D7D7D7] shadow-xl right-0 z-40 duration-300 transition-all ease-in-out flex flex-col lg:hidden gap-4 top-0  ${inHome ? 'pt-28' : 'pt-[72px]'}`}>
                 <NavLink className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} w-full h-autu flex gap-4 border-[1px] border-gray-300 py-2 px-4 font-marcellus items-center text-lg font-semibold `} to='/'>
                     <MdHome size={25} />

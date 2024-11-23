@@ -13,7 +13,7 @@ import Marquee from 'react-fast-marquee';
 import Shine from '../../assets/Images/shine.png'
 import { NavLink } from 'react-router-dom';
 // import Main from '../../assets/4.png'
-import Main from '../../assets/6.png'
+import Main from '../../assets/image1.png'
 // import Main from '../../assets/7.png'
 // import Main from '../../assets/12.png'
 
@@ -21,7 +21,7 @@ import Main from '../../assets/6.png'
 function LandingPage() {
     return (
         <>
-            <div className='w-full h-10 bg-[#1A3A37] flex items-center justify-between px-5 font-marcellus xl:h-12'>
+            <div className='w-full h-10 bg-[#1A3A37] flex items-center justify-between px-5 font-marcellus relative z-50 xl:h-12'>
                 <div className='flex gap-4'>
                     <FaFacebookF size={20} className='text-white' />
                     <FaInstagram size={20} className='text-white' />
@@ -41,8 +41,8 @@ function LandingPage() {
             </div>
             <Header color={'#D7D7D7'} />
             <div className='w-full h-auto flex flex-col bg-[#D7D7D7] relative md:flex-row font-marcellus'>
-                <div className='w-full h-[75vh] flex md:w-[70vw] md:items-center md:justify-center'>
-                    <img src={Main} alt="Picture 1" className='w-full h-full hidden md:flex md:justify-center md:items-center md:h-[80%] md:w-[80%] md:rounded-3xl lg:w-[70%] xl:w-[80%] xl:h-[600px]' />
+                <div className='w-full h-[75vh] flex md:w-[70vw] md:items-center md:justify-center overflow-hidden'>
+                    <img src={Main} alt="Picture 1" className='w-full h-full hidden md:flex md:justify-center md:items-center md:h-[300px] md:w-[300px] md:rounded-3xl xl:w-[400px] xl:h-[400px]' />
                 </div>
                 <div className='absolute top-0 w-full h-[75vh] md:relative '>
                     <div className='flex flex-col absolute top-20 left-6 sm:left-40 md:left-20'>

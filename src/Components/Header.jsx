@@ -17,7 +17,6 @@ import { BsCollection } from "react-icons/bs";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaBloggerB } from "react-icons/fa6";
 import { IoMdContacts } from "react-icons/io";
-import { IoLogOut } from "react-icons/io5";
 
 function Header({ color }) {
     const [userEmail, setUserEmail] = useState('')
@@ -70,9 +69,24 @@ function Header({ color }) {
         };
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const scroll = Math.floor(window.scrollY);
+            if (scroll > 5) {
+                setSideBar(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <>
-            <header className='w-full h-16 items-center flex justify-between p-4' style={{ backgroundColor: color }}>
+            <header className='w-full h-16 items-center flex justify-between p-4 relative z-50' style={{ backgroundColor: color }}>
                 <div className='font-marcellus'>Jwellery</div>
                 <div className='hidden lg:flex lg:font-marcellus lg:gap-10 lg:ml-20 xl:60 xl:gap-16 2xl:gap-20'>
                     <NavLink to='/' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Home</NavLink>
@@ -124,7 +138,7 @@ function Header({ color }) {
                                     <div ref={dropdownRef} className='w-auto h-auto flex items-center justify-center'>
                                         <CiUser onClick={handleDropDown2} size={20} />
                                         {dropdown2 && (
-                                            <div className={`${inHome ? 'top-24' : 'top-12'} absolute right-10 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 lg:right-40 `}>
+                                            <div className={`${inHome ? 'top-12' : 'top-12'} absolute right-10 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 lg:right-40 `}>
                                                 <NavLink
                                                     to='/view-profile'
                                                     className="flex justify-center cursor-pointer text-lg px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -154,7 +168,7 @@ function Header({ color }) {
                 }
 
             </header>
-            <div className={`${sideBar ? 'translate-x-0' : 'translate-x-80'} w-52 h-full fixed bg-[#D7D7D7] shadow-xl right-0 z-40 duration-300 transition-all ease-in-out flex flex-col lg:hidden gap-4 ${inHome ? 'top-[105px]' : 'top-16'}`}>
+            <div className={`${sideBar ? 'translate-x-0' : 'translate-x-80'} fixed w-52 h-full bg-[#D7D7D7] shadow-xl right-0 z-40 duration-300 transition-all ease-in-out flex flex-col lg:hidden gap-4 top-0  ${inHome ? 'pt-28' : 'pt-[72px]'}`}>
                 <NavLink className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} w-full h-autu flex gap-4 border-[1px] border-gray-300 py-2 px-4 font-marcellus items-center text-lg font-semibold `} to='/'>
                     <MdHome size={25} />
                     Home

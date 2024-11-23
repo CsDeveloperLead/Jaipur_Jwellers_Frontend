@@ -10,8 +10,10 @@ function ViewProfile() {
     const [orders, setOrders] = useState([])
     const [user, setUser] = useState({
         email: "",
-        name:""
+        name: "",
+        id: ""
     })
+
 
     useEffect(() => {
         // Retrieve the token from localStorage (or any storage where it's stored)
@@ -21,29 +23,32 @@ function ViewProfile() {
         if (token) {
             const decodedToken = jwtDecode(token);
 
-            const { email, name } = decodedToken; // Extracting email from the decoded token
+            const { email, name, id } = decodedToken; // Extracting email from the decoded token
             setUser({
-                email: email,
-                name: name
-            })
-
+                email,
+                name,
+                id
+            });
         }
+    }, []); // Run only once when the component mounts
 
-        // Fetch orders when the component loads
-        const fetchOrders = async () => {
-            try {
-                const response = await axios.post(`${backend}/api/v1/orders/order-history`);
-                // Filter orders for the logged-in user based on the email extracted from the JWT token
-                const userOrders = response.data.filter(order => order.user === userEmail);
-                setOrders(userOrders); // Save only the filtered orders
-            } catch (err) {
-                console.error('Error fetching orders:', err);
-                setError('Failed to load orders');
-            }
-        };
+    useEffect(() => {
+        if (user.id) { // Ensure user.id is set before fetching orders
+            const fetchOrders = async () => {
+                try {
+                    const response = await axios.post(`${backend}/api/v1/orders/order-history`);
+                    // Filter orders for the logged-in user based on the email extracted from the JWT token
+                    const userOrders = response.data.message.filter(order => order.user === user.id);
+                    setOrders(userOrders); // Save only the filtered orders
+                } catch (err) {
+                    console.error('Error fetching orders:', err);
+                    setError('Failed to load orders');
+                }
+            };
 
-        fetchOrders();
-    }, []);
+            fetchOrders();
+        }
+    }, [user.id]);
 
     return (
         <>
@@ -71,7 +76,6 @@ function ViewProfile() {
                                     <thead>
                                         <tr className="bg-gray-200">
                                             <th className="border px-4 py-2">Order ID</th>
-                                            {/* <th className="border px-4 py-2">User</th> */}
                                             <th className="border px-4 py-2">Items</th>
                                             <th className="border px-4 py-2">Total Price</th>
                                             <th className="border px-4 py-2">Status</th>
@@ -79,10 +83,9 @@ function ViewProfile() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {orders.map((order) => (
+                                        {orders?.map((order) => (
                                             <tr key={order._id} className="hover:bg-gray-100 text-center">
                                                 <td className="border px-4 py-2">{order._id}</td>
-                                                {/* <td className="border px-4 py-2">{order.user}</td> */}
                                                 <td className="border px-4 py-2">
                                                     {order.items.map((item, index) => (
                                                         <div key={index}>
@@ -90,7 +93,7 @@ function ViewProfile() {
                                                         </div>
                                                     ))}
                                                 </td>
-                                                <td className="border px-4 py-2">₹{order.totalPrice}</td>
+                                                <td className="border px-4 py-2">₹{order.amount}</td>
                                                 <td className="border px-4 py-2">{order.status}</td>
                                                 <td className="border px-4 py-2">
                                                     {new Date(order.createdAt).toLocaleString()}

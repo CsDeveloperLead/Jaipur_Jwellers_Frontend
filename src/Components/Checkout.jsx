@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './Header'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
 import axios from 'axios'
+import { jwtDecode } from 'jwt-decode';
 
 
 const backend = import.meta.env.VITE_BACKEND_URL
 
 function Checkout() {
-    const { cartItems, getCartTotal , clearCart} = useContext(CartContext)
+    const { cartItems, getCartTotal, clearCart } = useContext(CartContext)
+    const [userData, setUserData] = useState(null);
     const mainPrice = getCartTotal()
     const [buyerInfo, setBuyerInfo] = useState({
         firstName: '',
@@ -37,7 +39,7 @@ function Checkout() {
     async function handleCheckout() {
         try {
             const data = {
-                userId: '6734790f4770b58aa0fc1df5', // here will come the loggedIn User id change this later
+                userId: userData.id,
                 cartItems,
                 shippingInfo: buyerInfo,
                 totalPrice: mainPrice + 115 + 110 //115 is shipping price and 110 is tax change this later
@@ -45,7 +47,7 @@ function Checkout() {
             const response = await axios.post(`${backend}/api/v1/orders/create-order`, data)
             alert("Checkout successful")
             clearCart()
-            navigate('/')
+            navigate('/view-profile')
             setBuyerInfo({
                 firstName: '',
                 lastName: '',
@@ -66,6 +68,22 @@ function Checkout() {
     const handleChange = (event) => {
         setBuyerInfo({ ...buyerInfo, state: event.target.value });
     };
+
+    useEffect(() => {
+        // Get JWT token from local storage
+        const token = localStorage.getItem("authToken");
+
+        if (token) {
+            try {
+                // Decode the token to get the user data
+                const decodedToken = jwtDecode(token);
+                setUserData(decodedToken);
+            } catch (error) {
+                console.error("Invalid token:", error);
+            }
+        }
+    }, []);
+
     return (
         <>
             <Header color={'#FAFAFA'} />

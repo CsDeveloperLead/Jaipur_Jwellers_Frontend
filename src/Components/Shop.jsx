@@ -15,6 +15,7 @@ function Shop() {
     const [searchProduct, setSearchProduct] = useState('')
     const [selectedCategory, setSelectedCategory] = useState("Diamond")
     const [allProducts, setAllProducts] = useState([])
+    const [selectedImages, setSelectedImages] = useState({});
 
     async function fetchProducts() {
         try {
@@ -80,7 +81,7 @@ function Shop() {
                                     {
                                         products?.map((product, index) => (
                                             <NavLink state={{ product }} to={`/single-product/${product._id}`} key={index} className='w-[300px] h-auto flex flex-col mx-auto bg-[#FEFDFD] p-1 rounded-[29px] gap-2 lg:p-1.5 cursor-pointer'>
-                                                <img src={product?.Image} alt="image" className='w-full h-[200px] mx-auto bg-gray-400 object-cover rounded-[30px] lg:h-[250px]' />
+                                                <img src={selectedImages[product._id] || product?.Image} alt="image" className='w-full h-[200px] mx-auto bg-gray-400 object-cover rounded-[30px] lg:h-[250px]' />
                                                 <div className='w-full h-auto flex flex-col mt-2 items-center px-3 lg:mt-3'>
                                                     <div className='w-full h-auto flex justify-between items-center'>
                                                         <span className='font-marcellus text-2xl'>{product.name}</span>
@@ -89,9 +90,36 @@ function Shop() {
                                                     <span className='w-full h-auto text-[#5A5A5A] text-sm lg:text-base'>{product.category}</span>
                                                     <div className='w-full h-auto flex justify-between my-2 items-center lg:mt-4'>
                                                         <span className='flex gap-2'>
-                                                            <span className='h-4 w-4 bg-[#D5D3D4] border-[1px] border-[#F1EEE9] lg:border-2 rounded-full lg:w-6 lg:h-6'></span>
-                                                            <span className='h-4 w-4 bg-[#C9E1EF] border-[1px] border-[#E0D7CD] lg:border-2 rounded-full lg:w-6 lg:h-6'></span>
-                                                            <span className='h-4 w-4 bg-[#97939F] border-[1px] border-[#F1EEE9] lg:border-2 rounded-full lg:w-6 lg:h-6'></span>
+                                                            <span
+                                                                onClick={(e) => {
+                                                                    e.preventDefault()
+                                                                    e.stopPropagation();
+                                                                    setSelectedImages((prevState) => ({
+                                                                        ...prevState,
+                                                                        [product._id]: product?.Image1.image,
+                                                                    }));
+                                                                }}
+                                                                className="h-4 w-4 border-[1px] lg:border-2 rounded-full lg:w-6 lg:h-6 cursor-pointer" style={{ backgroundColor: `#${product?.Image1.color}` }}></span>
+                                                            <span
+                                                                onClick={(e) => {
+                                                                    e.preventDefault()
+                                                                    e.stopPropagation();
+                                                                    setSelectedImages((prevState) => ({
+                                                                        ...prevState,
+                                                                        [product._id]: product?.Image2.image,
+                                                                    }));
+                                                                }}
+                                                                className="h-4 w-4 border-[1px] lg:border-2 rounded-full lg:w-6 lg:h-6 cursor-pointer" style={{ backgroundColor: `#${product?.Image2.color}` }}></span>
+                                                            <span
+                                                                onClick={(e) => {
+                                                                    e.preventDefault()
+                                                                    e.stopPropagation();
+                                                                    setSelectedImages((prevState) => ({
+                                                                        ...prevState,
+                                                                        [product._id]: product?.Image3.image,
+                                                                    }));
+                                                                }}
+                                                                className="h-4 w-4 border-[1px] lg:border-2 rounded-full lg:w-6 lg:h-6 cursor-pointer" style={{ backgroundColor: `#${product?.Image3.color}` }}></span>
                                                         </span>
                                                         <span className='font-marcellus text-lg lg:text-xl'>₹{product.quantityPrices[0].price}</span>
                                                     </div>

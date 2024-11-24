@@ -158,14 +158,14 @@ function SingleProduct() {
                             <div className='w-full h-auto flex flex-col font-marcellus gap-3 md:gap-6'>
                                 <span className='text-[#111111] text-xl sm:text-2xl md:text-3xl lg:text-2xl'>Colors</span>
                                 <div className='w-full h-auto flex gap-4 items-center'>
-                                    <div className='w-8 h-8 rounded-full border-2 border-[#5D5656] flex justify-center items-center xl:w-10 xl:h-10'>
-                                        <span className='w-6 h-6 rounded-full bg-[#5D5656] xl:w-8 xl:h-8'></span>
+                                    <div className='w-8 h-8 rounded-full flex justify-center items-center xl:w-10 xl:h-10'>
+                                        <span className='w-6 h-6 rounded-full xl:w-8 xl:h-8 cursor-pointer border-[1px]' style={{ backgroundColor: `#${product?.Image1.color}` }}></span>
                                     </div>
                                     <div className='w-8 h-8 rounded-full flex justify-center items-center xl:w-10 xl:h-10'>
-                                        <span className='w-6 h-6 rounded-full bg-[#556D84] xl:w-8 xl:h-8'></span>
+                                        <span className='w-6 h-6 rounded-full xl:w-8 xl:h-8 cursor-pointer border-[1px]' style={{ backgroundColor: `#${product?.Image2.color}` }}></span>
                                     </div>
                                     <div className='w-8 h-8 rounded-full flex justify-center items-center xl:w-10 xl:h-10'>
-                                        <span className='w-6 h-6 rounded-full bg-[#8E9295] xl:w-8 xl:h-8'></span>
+                                        <span className='w-6 h-6 rounded-full xl:w-8 xl:h-8 cursor-pointer border-[1px]' style={{ backgroundColor: `#${product?.Image3.color}` }}></span>
                                     </div>
                                 </div>
                             </div>

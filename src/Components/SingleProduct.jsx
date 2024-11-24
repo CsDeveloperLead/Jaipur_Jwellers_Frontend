@@ -17,7 +17,7 @@ function SingleProduct() {
     const [isAddedToCart, setIsAddedToCart] = useState(false);
     const [quantity, setQuantity] = useState(1);
     const [selectedQuantityPrice, setSelectedQuantityPrice] = useState(product.quantityPrices[0]);
-    const [productImages, setProductImages] = useState([product?.Image, product?.Image1, product?.Image2, product?.Image3])
+    const [productImages, setProductImages] = useState([product?.Image, product?.Image1?.image, product?.Image2?.image, product?.Image3?.image])
     const [mainImage, setMainImage] = useState('' || product?.Image)
 
     const handleAddToCart = () => {

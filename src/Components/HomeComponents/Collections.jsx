@@ -11,9 +11,6 @@ function Collections({ data }) {
         setProducts(data)
     }, [data])
 
-    console.log(products);
-
-
     return (
         <div className='bg-[#1A3A37] w-full h-auto flex flex-col justify-center items-center py-10 xl:py-20 gap-10'>
             <div className='flex flex-col justify-center items-center font-marcellus text-white gap-3'>

@@ -6,12 +6,14 @@ import { GoHeart } from "react-icons/go";
 import { GoShareAndroid } from "react-icons/go";
 import { IoMdStar } from "react-icons/io";
 import { IoMdStarHalf } from "react-icons/io";
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { CartContext } from './CartContext';
 import { MdOutlineDone } from "react-icons/md";
+import AuthContext from './AuthContext';
 
 function SingleProduct() {
     const { addToCart } = useContext(CartContext)
+    const { isAuthenticated } = useContext(AuthContext)
     const location = useLocation()
     const { product } = location.state || {}
     const [isAddedToCart, setIsAddedToCart] = useState(false);
@@ -20,17 +22,24 @@ function SingleProduct() {
     const [productImages, setProductImages] = useState([product?.Image, product?.Image1?.image, product?.Image2?.image, product?.Image3?.image])
     const [mainImage, setMainImage] = useState('' || product?.Image)
 
+    const navigate = useNavigate()
+
     const handleAddToCart = () => {
-        addToCart({
-            product_id: product.product_id,
-            name: product.name,
-            Image: product.Image || '',
-            quantity: quantity,
-            price: selectedQuantityPrice.price,
-            selectedQuantity: selectedQuantityPrice.quantity,
-        });
-        setIsAddedToCart(true);
-        setTimeout(() => setIsAddedToCart(false), 2000);
+        if (isAuthenticated) {
+            addToCart({
+                product_id: product.product_id,
+                name: product.name,
+                Image: product.Image || '',
+                quantity: quantity,
+                price: selectedQuantityPrice.price,
+                selectedQuantity: selectedQuantityPrice.quantity,
+            });
+            setIsAddedToCart(true);
+            setTimeout(() => setIsAddedToCart(false), 2000);
+        } else {
+            alert("To Add this product to your cart, you need to login first")
+            navigate('/login')
+        }
     };
 
     useEffect(() => {

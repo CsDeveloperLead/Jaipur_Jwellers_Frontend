@@ -107,7 +107,7 @@ function Header({ color }) {
                             <div ref={dropdownRef} className='w-auto h-auto flex items-center justify-center'>
                                 <FaUserCircle onClick={handleDropDown} size={28} className='text-[#1A3A37] mx-4 cursor-pointer' />
                                 {dropdown && (
-                                    <div className={`${inHome ? 'top-24' : 'top-12'} absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 `}>
+                                    <div className={`${inHome ? 'top-14' : 'top-12'} absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 `}>
                                         {userEmail === "jwellery@admin.com" && ( // Check if user is admin
                                             <NavLink
                                                 to="/view-orders"

@@ -94,7 +94,7 @@ function Header({ color }) {
                     <NavLink to='/' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Home</NavLink>
                     <span className='cursor-pointer'>Collection</span>
                     <NavLink to='/shop' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Shop</NavLink>
-                    <span className='cursor-pointer'>Blog</span>
+                    <NavLink to='/blog' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Blog</NavLink>
                     <NavLink to='/contact-us' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Contact Us</NavLink>
                 </div>
 
@@ -109,12 +109,20 @@ function Header({ color }) {
                                 {dropdown && (
                                     <div className={`${inHome ? 'top-14' : 'top-12'} absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 `}>
                                         {userEmail === "jwellery@admin.com" && ( // Check if user is admin
-                                            <NavLink
-                                                to="/view-orders"
-                                                className="flex justify-center px-4 py-2 text-lg text-gray-800 hover:bg-gray-200"
-                                            >
-                                                All Orders
-                                            </NavLink>
+                                            <>
+                                                <NavLink
+                                                    to="/view-orders"
+                                                    className="flex justify-center px-4 py-2 text-lg text-gray-800 hover:bg-gray-200"
+                                                >
+                                                    All Orders
+                                                </NavLink>
+                                                <NavLink
+                                                    to="/admin/blogs"
+                                                    className="flex justify-center px-4 py-2 text-lg text-gray-800 hover:bg-gray-200"
+                                                >
+                                                    Blogs
+                                                </NavLink>
+                                            </>
                                         )}
 
                                         <NavLink

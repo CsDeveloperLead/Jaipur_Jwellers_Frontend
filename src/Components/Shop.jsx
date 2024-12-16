@@ -80,14 +80,14 @@ function Shop() {
                                 ? <div className='w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-6'>
                                     {
                                         products?.map((product, index) => (
-                                            <NavLink state={{ product }} to={`/single-product/${product._id}`} key={index} className='w-[300px] h-auto flex flex-col mx-auto bg-[#FEFDFD] p-1 rounded-[29px] gap-2 lg:p-1.5 cursor-pointer'>
+                                            <NavLink state={{ product }} to={`/single-product/${product._id}`} key={index} className='group w-[300px] h-auto flex flex-col mx-auto bg-[#FEFDFD] p-1 rounded-[29px] gap-2 lg:p-1.5 cursor-pointer md:hover:bg-[#1A3A37] md:hover:text-white duration-500 ease-in-out transition-all'>
                                                 <img src={selectedImages[product._id] || product?.Image} alt="image" className='w-full h-[200px] mx-auto bg-gray-400 object-cover rounded-[30px] lg:h-[250px]' />
                                                 <div className='w-full h-auto flex flex-col mt-2 items-center px-3 lg:mt-3'>
                                                     <div className='w-full h-auto flex justify-between items-center'>
                                                         <span className='font-marcellus text-2xl'>{product.name}</span>
                                                         <GoHeart size={20} className='text-[#B3B3B3]' />
                                                     </div>
-                                                    <span className='w-full h-auto text-[#5A5A5A] text-sm lg:text-base'>{product.category}</span>
+                                                    <span className='w-full h-auto text-[#5A5A5A] text-sm lg:text-base group-hover:text-white duration-500 ease-in-out transition-all'>{product.category}</span>
                                                     <div className='w-full h-auto flex justify-between my-2 items-center lg:mt-4'>
                                                         <span className='flex gap-2'>
                                                             <span

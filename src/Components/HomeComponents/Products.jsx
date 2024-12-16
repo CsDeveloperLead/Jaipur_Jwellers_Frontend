@@ -24,8 +24,10 @@ function Products({ data }) {
                         {
                             products.length > 0
                                 ? products.map((product, index) => (
-                                    <NavLink state={{ product }} to={`/single-product/${product._id}`} key={index} className='min-w-[70vw] bg-white p-2 shadow-md shadow-gray-400 rounded-xl h-auto flex flex-col mx-auto sm:min-w-[40vw] md:min-w-[28vw] xl:min-w-[19vw] 2xl:min-w-[18vw]'>
-                                        <img src={selectedImages[product._id] || product?.Image} alt="image" className='w-full h-52 bg-gray-300 rounded-2xl object-cover' />
+                                    <NavLink state={{ product }} to={`/single-product/${product._id}`} key={index} className='group min-w-[70vw] bg-white p-2 shadow-md shadow-gray-400 rounded-xl hover:shadow-xl duration-500 ease-in-out transition-all h-auto flex flex-col mx-auto sm:min-w-[40vw] md:min-w-[28vw] xl:min-w-[19vw] 2xl:min-w-[18vw]'>
+                                        <div className='w-full h-52 overflow-hidden rounded-2xl'>
+                                            <img src={selectedImages[product._id] || product?.Image} alt="image" className='w-full h-full bg-gray-300 object-cover group-hover:scale-110 duration-500 ease-in-out' />
+                                        </div>
                                         <div className='w-full h-auto flex justify-between mt-2 items-center px-2'>
                                             <span className='font-marcellus'>{product.name}</span>
                                             <GoHeart size={20} className='text-[#B3B3B3]' />

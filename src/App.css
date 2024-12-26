@@ -18,3 +18,32 @@ input[type="checkbox"]:checked {
 html{
   scroll-behavior: smooth;
 }
+
+/* Infinite scrolling animation */
+@keyframes scroll {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
+/* Scrolling wrapper */
+.scrolling-wrapper {
+  display: flex;
+  animation: scroll 20s linear infinite; /* Adjust speed with duration (20s) */
+}
+
+/* Content inside each card */
+.scrolling-wrapper > div {
+  flex-shrink: 0;
+  /* Adjust width for responsiveness */
+  width: 250px; /* For small screens */
+  @media (min-width: 640px) {
+      width: 300px; /* For medium screens */
+  }
+  @media (min-width: 1024px) {
+      width: 400px; /* For large screens */
+  }
+}

@@ -6,29 +6,40 @@ import { GoHeart } from "react-icons/go";
 import { GoShareAndroid } from "react-icons/go";
 import { IoMdStar } from "react-icons/io";
 import { IoMdStarHalf } from "react-icons/io";
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { CartContext } from './CartContext';
 import { MdOutlineDone } from "react-icons/md";
+import AuthContext from './AuthContext';
 
 function SingleProduct() {
     const { addToCart } = useContext(CartContext)
+    const { isAuthenticated } = useContext(AuthContext)
     const location = useLocation()
     const { product } = location.state || {}
     const [isAddedToCart, setIsAddedToCart] = useState(false);
     const [quantity, setQuantity] = useState(1);
     const [selectedQuantityPrice, setSelectedQuantityPrice] = useState(product.quantityPrices[0]);
+    const [productImages, setProductImages] = useState([product?.Image, product?.Image1?.image, product?.Image2?.image, product?.Image3?.image])
+    const [mainImage, setMainImage] = useState('' || product?.Image)
+
+    const navigate = useNavigate()
 
     const handleAddToCart = () => {
-        addToCart({
-            product_id: product.product_id,
-            name: product.name,
-            Image: product.Image || '',
-            quantity: quantity,
-            price: selectedQuantityPrice.price,
-            selectedQuantity: selectedQuantityPrice.quantity,
-        });
-        setIsAddedToCart(true);
-        setTimeout(() => setIsAddedToCart(false), 2000);
+        if (isAuthenticated) {
+            addToCart({
+                product_id: product.product_id,
+                name: product.name,
+                Image: product.Image || '',
+                quantity: quantity,
+                price: selectedQuantityPrice.price,
+                selectedQuantity: selectedQuantityPrice.quantity,
+            });
+            setIsAddedToCart(true);
+            setTimeout(() => setIsAddedToCart(false), 2000);
+        } else {
+            alert("To Add this product to your cart, you need to login first")
+            navigate('/login')
+        }
     };
 
     useEffect(() => {
@@ -47,14 +58,14 @@ function SingleProduct() {
                 <div className='w-full h-auto flex flex-col lg:w-[600px] xl:w-[840px] xl:gap-10'>
                     <div className='w-full h-auto flex flex-col gap-3'>
                         <div className='w-[90%] h-auto mx-auto md:w-[80%] lg:w-[90%] xl:h-[400px]'>
-                            <img src={product?.Image} alt="main image" className='w-full h-80 bg-gray-300 rounded-3xl object-cover xl:h-full xl:rounded-[50px]' />
+                            <img src={mainImage} alt="main image" className='w-full h-80 bg-gray-300 rounded-3xl object-cover xl:h-full xl:rounded-[50px]' />
                         </div>
                         <div className='product-slider w-full h-auto flex gap-3 px-3 overflow-x-scroll sm:justify-center'>
-                            <img src={product?.Image1} alt="" className='w-20 h-20 bg-gray-300 rounded-xl object-cover sm:w-24 sm:h-24 lg:w-20 lg:h-20' />
-                            <img src={product?.Image2} alt="" className='w-20 h-20 bg-gray-300 rounded-xl object-cover sm:w-24 sm:h-24 lg:w-20 lg:h-20' />
-                            <img src={product?.Image3} alt="" className='w-20 h-20 bg-gray-300 rounded-xl object-cover sm:w-24 sm:h-24 lg:w-20 lg:h-20' />
-                            {/* <img src="" alt="" className='w-20 h-20 bg-gray-300 rounded-xl sm:w-24 sm:h-24 lg:w-20 lg:h-20' /> */}
-                            {/* <img src="" alt="" className='w-20 h-20 bg-gray-300 rounded-xl sm:w-24 sm:h-24 lg:w-20 lg:h-20' /> */}
+                            {
+                                productImages.map((image, index) => (
+                                    <img key={index} src={image} alt="product image" onClick={() => setMainImage(image)} className={`${mainImage === image ? 'border-2 border-[#344E41]' : ''} cursor-pointer w-20 h-20 bg-gray-300 rounded-xl object-cover sm:w-24 sm:h-24 lg:w-20 lg:h-20 `} />
+                                ))
+                            }
                         </div>
                     </div>
                     <div className='w-[95%] mx-auto h-auto rounded-3xl shadow-custom-shadow p-5 mt-4 border-[1px] border-[#1111111A] flex flex-col gap-6 sm:w-[85%] md:p-7 lg:w-[95%] xl:w-full xl:py-6 xl:rounded-[50px]'>
@@ -156,14 +167,14 @@ function SingleProduct() {
                             <div className='w-full h-auto flex flex-col font-marcellus gap-3 md:gap-6'>
                                 <span className='text-[#111111] text-xl sm:text-2xl md:text-3xl lg:text-2xl'>Colors</span>
                                 <div className='w-full h-auto flex gap-4 items-center'>
-                                    <div className='w-8 h-8 rounded-full border-2 border-[#5D5656] flex justify-center items-center xl:w-10 xl:h-10'>
-                                        <span className='w-6 h-6 rounded-full bg-[#5D5656] xl:w-8 xl:h-8'></span>
+                                    <div className='w-8 h-8 rounded-full flex justify-center items-center xl:w-10 xl:h-10'>
+                                        <span className='w-6 h-6 rounded-full xl:w-8 xl:h-8 cursor-pointer border-[1px]' style={{ backgroundColor: `#${product?.Image1.color}` }}></span>
                                     </div>
                                     <div className='w-8 h-8 rounded-full flex justify-center items-center xl:w-10 xl:h-10'>
-                                        <span className='w-6 h-6 rounded-full bg-[#556D84] xl:w-8 xl:h-8'></span>
+                                        <span className='w-6 h-6 rounded-full xl:w-8 xl:h-8 cursor-pointer border-[1px]' style={{ backgroundColor: `#${product?.Image2.color}` }}></span>
                                     </div>
                                     <div className='w-8 h-8 rounded-full flex justify-center items-center xl:w-10 xl:h-10'>
-                                        <span className='w-6 h-6 rounded-full bg-[#8E9295] xl:w-8 xl:h-8'></span>
+                                        <span className='w-6 h-6 rounded-full xl:w-8 xl:h-8 cursor-pointer border-[1px]' style={{ backgroundColor: `#${product?.Image3.color}` }}></span>
                                     </div>
                                 </div>
                             </div>

@@ -158,7 +158,7 @@ function Dashboard() {
         <ProductForm
           product={currentProduct}
           closePopup={closePopup}
-        // refreshProducts={fetchProducts}
+          refreshProducts={fetchProducts}
         />
       )}
 

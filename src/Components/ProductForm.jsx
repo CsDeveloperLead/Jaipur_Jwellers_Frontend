@@ -19,6 +19,9 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
         depth: "",
         weight: "",
         details: [{}],
+        image1Color: "",
+        image2Color: "",
+        image3Color: "",
     });
 
     const [mainImage, setMainImage] = useState(null);
@@ -88,6 +91,9 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
         data.append("height", formData.height);
         data.append("depth", formData.depth);
         data.append("weight", formData.weight);
+        data.append("image1Color", formData.image1Color);
+        data.append("image2Color", formData.image2Color);
+        data.append("image3Color", formData.image3Color);
 
         if (mainImage) data.append("Image", mainImage);
         extraImages.forEach((image, index) => {
@@ -95,13 +101,26 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
         });
 
         try {
-            const response = await axios.post(`${backend}/api/v1/products/create-product`, data)
-            console.log(response);
+            const url = product
+                ? `${backend}/api/v1/products/update-product/${product.product_id}`
+                : `${backend}/api/v1/products/create-product`
 
+            const method = product ? "put" : "post";
 
-            if (response.status === 201) {
-                alert("Product created successfully")
-                closePopup()
+            const res = await axios({
+                method,
+                url,
+                data,
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+
+            if (res.status === 200 || res.status === 201) {
+                alert(product ? "Product updated successfully!" : "Product created successfully!");
+                refreshProducts();
+                closePopup();
             }
 
         } catch (error) {
@@ -119,12 +138,15 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                 category: product.category,
                 countInStock: product.countInStock,
                 quantityPrices: product.quantityPrices?.length > 0 ? product.quantityPrices : [{ quantity: "", price: 0 }],
-                details: product.details?.length > 0 ? product.details : [""],
+                details: Array.isArray(product.details) && product.details.length > 0 ? product.details : [""],
                 model: product.model,
                 width: product.width,
                 height: product.height,
                 depth: product.depth,
                 weight: product.weight,
+                image1Color: product.Image1?.color,
+                image2Color: product.Image2?.color,
+                image3Color: product.Image3?.color,
             });
         }
     }, [product]);
@@ -191,6 +213,21 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                                 />
                             </div>
                         ))}
+                    </div>
+                    {/* Image colors */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Extra Image 1 color</label>
+                            <input type="text" value={formData?.image1Color} onChange={(e) => setFormData({ ...formData, image1Color: e.target.value })} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Extra Image 2 color</label>
+                            <input type="text" value={formData?.image2Color} onChange={(e) => setFormData({ ...formData, image2Color: e.target.value })} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Extra Image 3 color</label>
+                            <input type="text" value={formData?.image3Color} onChange={(e) => setFormData({ ...formData, image3Color: e.target.value })} className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                        </div>
                     </div>
                     {/* Description */}
                     <div>

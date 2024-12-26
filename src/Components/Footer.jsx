@@ -59,7 +59,7 @@ function Footer() {
             </div>
             <div className='w-full h-[1px] bg-white mt-8 md:w-[90%] mx-auto md:mt-14' />
             <div className='w-full h-auto flex flex-col font-marcellus mt-4 justify-between md:flex-row md:w-[90%] md:mx-auto'>
-                <span className='text-white text-center md:text-start'>©Codeblish all rights Reserved</span>
+                <span className='text-white text-center md:text-start'>©2024 Jaipur jwellers, made with 💖 by Campaigning Source, all rights reserved</span>
                 <div className='flex flex-col mt-4 md:mt-0'>
                     <div></div>
                     <div className='flex gap-3 font-marcellus text-white justify-center items-center'><span>Terms And Condition</span> | <span>Privacy Policy</span></div>

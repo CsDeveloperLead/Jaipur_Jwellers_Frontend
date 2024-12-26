@@ -2,13 +2,28 @@ import React, { useContext, useState } from 'react'
 import Header from './Header'
 import { IoCloseSharp } from "react-icons/io5";
 import { LuTicket } from "react-icons/lu";
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { CartContext } from './CartContext';
-
+import AuthContext from './AuthContext';
 
 function MyCart() {
-    const { cartItems, addToCart, removeFromCart, getCartTotal } = useContext(CartContext);
+    const { cartItems, addToCart, removeFromCart, getCartTotal, clearCart } = useContext(CartContext);
     const mainPrice = getCartTotal()
+    const navigate = useNavigate()
+    const { isAuthenticated } = useContext(AuthContext);
+
+    function clearAllCartItems(){
+        clearCart()
+    }
+
+    const handleCheckoutClick = () => {
+        if (isAuthenticated) {
+            navigate("/my-cart/checkout");
+        } else {
+            alert("Please sign in to continue");
+            navigate("/login");
+        }
+    };
 
     return (
         <>
@@ -38,8 +53,7 @@ function MyCart() {
                 <div className='my-10 w-full h-auto flex flex-col gap-4 md:flex-row xl:px-24 pb-10 xl:pb-20'>
                     <div className='w-full h-auto flex flex-col px-5'>
                         <div className='w-full h-auto flex gap-3 text-[#A7A7A7] font-marcellus mb-5'>
-                            <input type="checkbox" name="" id="selectall" />
-                            <label htmlFor="selectall">Select All</label>
+                            <span onClick={clearAllCartItems} className='cursor-pointer active:text-[#1A3A37] md:hover:text-[#1A3A37]'>Clear All</span>
                         </div>
                         <div className='w-full h-[1px] bg-[#1A3A37]'></div>
                         <div className='w-full h-auto flex flex-col gap-3'>
@@ -48,20 +62,19 @@ function MyCart() {
                                     ? cartItems.map((item, index) => (
                                         <div key={index} className='w-full h-auto flex flex-col'>
                                             <div className='w-full h-auto flex  py-4'>
-                                                <div className='h-auto flex justify-center items-center mr-3'>
-                                                    <input type="checkbox" name="" id="" />
-                                                </div>
-                                                <img src="" alt="" className='w-20 h-20 bg-gray-300 sm:w-32 sm:h-28 lg:w-44 lg:h-36' />
+                                                <img src={item.Image} alt="product Image" className='w-20 h-20 object-cover sm:w-32 sm:h-28 lg:w-44 lg:h-36' />
                                                 <div className='w-full h-auto flex justify-between items-center pl-3 lg:pl-8'>
-                                                    <div className='w-auto h-full flex flex-col font-marcellus justify-between'>
+                                                    <div className='w-auto h-full flex flex-1 flex-col font-marcellus justify-between'>
                                                         <div className='w-full h-auto flex flex-col text-sm lg:text-lg'>
                                                             <span>{item.name}</span>
                                                             <span>₹{item.price}</span>
                                                         </div>
-                                                        <div className='w-auto h-auto flex justify-between gap-3'>
-                                                            <span onClick={() => removeFromCart(item)} className='w-6 h-6 bg-[#D0D0D2] rounded-md flex justify-center items-center text-[#A7A7A7] lg:w-8 lg:h-8 cursor-pointer select-none'>-</span>
-                                                            <span className='w-6 h-6 flex justify-center items-center text-[#1A3A37] lg:w-8 lg:h-8'>{item.quantity}</span>
-                                                            <span onClick={() => addToCart(item)} className='w-6 h-6 bg-[#1A3A37] rounded-md flex justify-center items-center text-[#FAFAFA] lg:w-8 lg:h-8 cursor-pointer select-none'>+</span>
+                                                        <div className='w-full h-auto flex items-center'>
+                                                            <div className='w-auto h-auto flex justify-between gap-3'>
+                                                                <span onClick={() => removeFromCart(item)} className='w-6 h-6 bg-[#D0D0D2] rounded-md flex justify-center items-center text-[#A7A7A7] lg:w-8 lg:h-8 cursor-pointer select-none'>-</span>
+                                                                <span className='w-6 h-6 flex justify-center items-center text-[#1A3A37] lg:w-8 lg:h-8'>{item.quantity}</span>
+                                                                <span onClick={() => addToCart(item)} className='w-6 h-6 bg-[#1A3A37] rounded-md flex justify-center items-center text-[#FAFAFA] lg:w-8 lg:h-8 cursor-pointer select-none'>+</span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div className='w-auto h-full flex justify-center items-center'>
@@ -92,7 +105,7 @@ function MyCart() {
                                     <span className='text-[##1A3A37]'>₹{mainPrice.toFixed(2)}</span>
                                 </div>
                                 <div className='w-full h-auto flex flex-col gap-3 mt-3'>
-                                    <NavLink to='/my-cart/checkout' className='w-full h-auto flex justify-center items-center bg-[#1A3A37] text-[#FAFAFA] rounded-md py-2 cursor-pointer'>Checkout</NavLink>
+                                    <span onClick={handleCheckoutClick} className='w-full h-auto flex justify-center items-center bg-[#1A3A37] text-[#FAFAFA] rounded-md py-2 cursor-pointer'>Checkout</span>
                                     <span className='w-full h-auto flex justify-center items-center text-[#1A3A37] py-2 cursor-pointer'>Continue Shopping</span>
                                 </div>
                             </div>

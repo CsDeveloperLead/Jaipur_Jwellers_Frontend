@@ -48,7 +48,7 @@ function LandingPage() {
                             <span>UNIQUENESS</span>
                         </div>
                         <div className='mt-5'>
-                            <NavLink to='/about' className='py-2 bg-[#1A3A37] text-white rounded-xl text-lg flex justify-center items-center gap-3 w-44 cursor-pointer'>
+                            <NavLink to='/about' className='py-2 bg-[#1A3A37] hover:bg-[#256f68] text-white rounded-xl text-lg flex justify-center items-center gap-3 w-44 cursor-pointer'>
                                 Know More <span className='w-7 h-7 bg-white flex justify-center items-center rounded-full'><FaArrowRightLong size={15} className='text-[#1A3A37]' /></span>
                             </NavLink>
                         </div>

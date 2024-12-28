@@ -33,7 +33,7 @@ function Info() {
     ];
 
     return (
-        <div className="w-full h-auto bg-[#FAFAFA] overflow-hidden">
+        <div className="w-full h-auto my-14 bg-[#FAFAFA] overflow-hidden">
             {/* Scrolling Container */}
             <div className="scrolling-wrapper flex items-center animate-scroll">
                 {content.map((item, index) => (

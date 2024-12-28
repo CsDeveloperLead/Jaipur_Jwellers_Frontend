@@ -52,7 +52,7 @@ function BlogPage() {
                 <div className='w-full h-auto flex flex-col mb-10 gap-6 lg:flex-row xl:px-14'>
                     <div className='w-full h-auto flex flex-col lg:w-[65%] xl:w-[70%]'>
                         <div className='w-full h-auto flex'>
-                            <img src={singleBlog?.image} alt="blog image" className='w-full object-cover sm:w-[600px] md:w-[800px] lg:w-full xl:w-[900px] sm:mx-auto' />
+                            <img src={singleBlog?.image} alt="blog image" className='w-full object-cover sm:w-[600px] md:w-[800px] rounded-xl lg:w-full xl:w-[900px] sm:mx-auto' />
                         </div>
                         <div className='w-full h-auto flex flex-col mt-4 gap-6 px-2 font-marcellus sm:px-6 sm:mt-8 md:mt-10 md:px-10'>
                             <h1 className='w-full h-auto flex font-bold sm:text-xl md:text-2xl xl:text-4xl'>{singleBlog?.title}</h1>
@@ -66,7 +66,7 @@ function BlogPage() {
                                 blogs.map((blog, index) => (
                                     blog?._id === singleBlog?._id ? null : (
                                         <div onClick={() => changeBlog(blog._id)} key={index} className='min-w-60 rounded-md cursor-pointer md:min-w-72 lg:min-w-40 duration-300 transition-all ease-out bg-gray-50 shadow-md md:hover:shadow-xl h-auto flex flex-col p-2'>
-                                            <img src={blog.image} alt="blog image" className='w-full object-cover h-40' />
+                                            <img src={blog.image} alt="blog image" className='w-full rounded-lg object-cover h-40' />
                                             <h1 className='mt-3 text-sm font-marcellus font-semibold md:mt-5 md:text-base'>{blog.title}</h1>
                                             <p className='mt-2 text-xs font-marcellus text-gray-700 md:text-sm md:mt-3'>
                                                 {

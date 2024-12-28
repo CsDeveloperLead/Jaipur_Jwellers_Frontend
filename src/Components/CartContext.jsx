@@ -9,6 +9,7 @@ export const CartProvider = ({ children }) => {
             : []
     );
 
+
     const addToCart = (item) => {
         const isItemInCart = cartItems.find(
             (cartItem) => cartItem.product_id === item.product_id && cartItem.selectedQuantity === item.selectedQuantity

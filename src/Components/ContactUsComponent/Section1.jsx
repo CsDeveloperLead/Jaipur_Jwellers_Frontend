@@ -13,20 +13,20 @@ function Section1() {
     const [userDetails, setUserDetails] = useState({
         name: "",
         email: "",
-        subject: ""
+        message: ""
     })
 
     async function sendMail() {
         try {
-            if (userDetails.name.length === 0 || userDetails.email.length === 0 || userDetails.subject.length === 0) return null
-            const response = await axios.post(`${backend}/api/v1/users/send-mail`, userDetails)
+            if (userDetails.name.length === 0 || userDetails.email.length === 0 || userDetails.message.length === 0) return null
+            const response = await axios.post(`${backend}/api/v1/contact/contact-us-send`, userDetails)
 
             if (response.status === 200) {
                 alert("Mail Sended successfully")
                 setUserDetails({
                     name: "",
                     email: "",
-                    subject: ""
+                    message: ""
                 })
             }
 
@@ -50,8 +50,8 @@ function Section1() {
                         <input type="email" name='email' value={userDetails.email} onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })} id='email' placeholder='Enter you Email' className='w-full h-9 outline-none px-3 border-[1px] border-gray-300 rounded-md' />
                     </div>
                     <div className='w-full h-auto flex flex-col gap-3'>
-                        <label className='text-[#383838] font-marcellus' htmlFor="subject">Subject <span className='text-red-500'>*</span></label>
-                        <textarea name="subject" id="subject" value={userDetails.subject} onChange={(e) => setUserDetails({ ...userDetails, subject: e.target.value })} placeholder='Enter you Subject' className='w-full outline-none p-3 border-[1px] border-gray-300 rounded-md min-h-32 max-h-32 resize-none'></textarea>
+                        <label className='text-[#383838] font-marcellus' htmlFor="message">message <span className='text-red-500'>*</span></label>
+                        <textarea name="message" id="message" value={userDetails.message} onChange={(e) => setUserDetails({ ...userDetails, message: e.target.value })} placeholder='Enter you message' className='w-full outline-none p-3 border-[1px] border-gray-300 rounded-md min-h-32 max-h-32 resize-none'></textarea>
                     </div>
                     <div className='w-full h-auto flex flex-col justify-center items-center sm:flex-row sm:items-center md:flex-col lg:flex-row'>
                         <div className='w-full h-full flex gap-2 items-center'>
@@ -73,11 +73,11 @@ function Section1() {
                     </div>
                     <div className='w-full h-auto flex gap-4 items-center mt-5'>
                         <FiPhone size={20} />
-                        <span className='w-[80%] text-xs sm:text-sm xl:text-base'> +123456789</span>
+                        <span className='w-[80%] text-xs sm:text-sm xl:text-base'>+91 8810451624</span>
                     </div>
                     <div className='w-full h-auto flex gap-4 items-center mt-5'>
                         <MdOutlineMail size={20} />
-                        <span className='w-[80%] text-xs sm:text-sm xl:text-base'>jwellery@support.com</span>
+                        <span className='w-[80%] text-xs sm:text-sm xl:text-base'>jaipurjewellers.online@gmail.com</span>
                     </div>
                     <div className='w-full h-auto flex flex-col mt-10 gap-8 xl:gap-10'>
                         <span className='font-semibold text-xl xl:text-3xl'>Follow us</span>

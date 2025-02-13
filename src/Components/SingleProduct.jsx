@@ -72,7 +72,7 @@ function SingleProduct() {
                         <div className='w-full h-auto flex justify-between'>
                             <div className='w-auto h-auto flex flex-col font-marcellus mr-2 lg:mr-0 lg:ml-3'>
                                 <span className='text-[#111111B2] text-sm sm:text-base md:text-lg lg:text-base'>Price</span>
-                                <span className='text-[#111111] text-lg sm:text-2xl md:text-3xl lg:text-2xl'>₹{product.quantityPrices[0].price}</span>
+                                <span className='text-[#111111] text-lg sm:text-2xl md:text-3xl lg:text-2xl'>${product.quantityPrices[0].price}</span>
                             </div>
                             <div onClick={handleAddToCart} disabled={isAddedToCart} className='flex-1 mx-3 h-auto bg-[#1A3A37] text-white flex justify-center gap-3 cursor-pointer items-center rounded-2xl font-marcellus'>
                                 {

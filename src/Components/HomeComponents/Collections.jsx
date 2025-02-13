@@ -12,7 +12,7 @@ function Collections({ data }) {
     }, [data])
 
     return (
-        <div className='bg-[#1A3A37] w-full h-auto flex flex-col justify-center items-center py-10 xl:py-20 gap-10'>
+        <div id='collections' className='bg-[#1A3A37] w-full h-auto flex flex-col justify-center items-center py-10 xl:py-20 gap-10'>
             <div className='flex flex-col justify-center items-center font-marcellus text-white gap-3'>
                 <span className='tracking-[7px] text-xs sm:text-sm md:text-base text-white'>Glamorous Life</span>
                 <span className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl'>Our new Collections</span>

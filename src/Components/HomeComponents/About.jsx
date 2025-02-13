@@ -6,17 +6,17 @@ function About({ data }) {
     const [hoverNo, setHoverNo] = useState('')
     const [products, setProducts] = useState([])
 
-    useEffect(() => {
-        setProducts(data.slice(0, 4))
-    }, [data])
+    // useEffect(() => {
+    //     setProducts(data.slice(0, 4))
+    // }, [data])
 
 
     return (
         <div className='w-full h-auto flex flex-col py-5 bg-[#FAFAFA]'>
-            <h1 className='font-marcellus tracking-[3px] text-center text-sm'>ABOUT OUR WENELUX</h1>
+            <h1 className='font-marcellus tracking-[3px] text-center text-sm'>ABOUT OUR JAIPUR JWELLERS</h1>
             <div className='w-full h-auto flex flex-col relative'>
                 <div className='w-full h-auto flex flex-col justify-center items-center font-marcellus text-xs my-10 md:my-20 md:text-xl md:gap-4 xl:text-2xl xl:gap-6 2xl:text-3xl'>
-                    <p className='text-center flex items-center'>I AM PASSIONATELY <img src="" alt="" className='w-5 h-5 mx-1 bg-slate-800' /> DEDICATED TO CRAFTING TIMELESS</p>
+                    <p className='text-center flex items-center'>WE ARE  PASSIONATELY <img src="" alt="" className='w-5 h-5 mx-1 bg-slate-800' /> DEDICATED TO CRAFTING TIMELESS</p>
                     <p className='text-center flex items-center'>ELEGANCE AND CAPTURING THE ESSENCE  <img src="" alt="" className='w-5 h-5 mx-1 bg-slate-800 hidden md:block' />  OF INDIVIDUAL STORIES</p>
                     <p className='text-center flex items-center'>OUR <img src="" alt="" className='w-5 h-5 mx-1 bg-slate-800' />  BRAND IS NOT JUST ABOUT ADORNMENT</p>
                 </div>

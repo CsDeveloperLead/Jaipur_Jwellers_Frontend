@@ -16,6 +16,8 @@ import { BsCollection } from "react-icons/bs";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaBloggerB } from "react-icons/fa6";
 import { IoMdContacts } from "react-icons/io";
+import logo from '../assets/logo1.png'
+
 
 function Header({ color }) {
     const [userEmail, setUserEmail] = useState('')
@@ -89,13 +91,17 @@ function Header({ color }) {
     return (
         <>
             <header className='w-full h-16 items-center flex justify-between p-4 relative z-50' style={{ backgroundColor: color }}>
-                <div className='font-marcellus'>Jwellery</div>
+                <div className=' w-[100px] h-[50px] font-marcellus'>
+                    <img src={logo} alt="" className='w-full h-full' />
+
+                </div>
                 <div className='hidden lg:flex lg:font-marcellus lg:gap-10 lg:ml-20 xl:60 xl:gap-16 2xl:gap-20'>
                     <NavLink to='/' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Home</NavLink>
-                    <span className='cursor-pointer'>Collection</span>
+                    <a href='#collections' className='cursor-pointer'>Collection</a>
                     <NavLink to='/shop' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Shop</NavLink>
                     <NavLink to='/blog' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Blog</NavLink>
                     <NavLink to='/contact-us' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Contact Us</NavLink>
+                    <NavLink to='/about' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>About</NavLink>
                 </div>
 
                 {
@@ -202,6 +208,10 @@ function Header({ color }) {
                 <NavLink className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} w-full h-autu flex gap-4 border-[1px] border-gray-300 py-2 px-4 font-marcellus items-center text-lg font-semibold `} to='/contact-us'>
                     <IoMdContacts size={22} />
                     Contact
+                </NavLink>
+                <NavLink className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} w-full h-autu flex gap-4 border-[1px] border-gray-300 py-2 px-4 font-marcellus items-center text-lg font-semibold `} to='/about'>
+                    <IoMdContacts size={22} />
+                    About
                 </NavLink>
             </div>
         </>

@@ -64,7 +64,7 @@ function Shop() {
                         <div className='w-auto h-auto flex gap-1 bg-[#F0F0F1] items-center px-5 rounded-3xl md:w-[400px] lg:w-[350px]'>
                             <IoIosSearch size={25} className='lg:size-8 text-[#B6B6B7]' />
                             <input type="text" placeholder='Search' value={searchProduct} onChange={(e) => setSearchProduct(e.target.value)} className='w-full h-auto bg-transparent outline-none p-2 py-3 text-sm lg:py-4' />
-                            <RxMixerHorizontal size={25} className='lg:size-8 text-[#B6B6B7] cursor-pointer' />
+                           
                         </div>
                         <div className='product-slider w-full h-auto flex overflow-scroll font-marcellus gap-3 md:w-auto'>
                             {
@@ -121,7 +121,7 @@ function Shop() {
                                                                 }}
                                                                 className="h-4 w-4 border-[1px] lg:border-2 rounded-full lg:w-6 lg:h-6 cursor-pointer" style={{ backgroundColor: `#${product?.Image3.color}` }}></span>
                                                         </span>
-                                                        <span className='font-marcellus text-lg lg:text-xl'>₹{product.quantityPrices[0].price}</span>
+                                                        <span className='font-marcellus text-lg lg:text-xl'>${product.quantityPrices[0].price}</span>
                                                     </div>
                                                 </div>
                                             </NavLink>

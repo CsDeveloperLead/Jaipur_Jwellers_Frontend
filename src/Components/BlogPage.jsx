@@ -43,7 +43,7 @@ function BlogPage() {
     return (
         <>
             <Header />
-            <div className='w-full h-auto flex flex-col py-7'>
+            <div className='w-full h-auto flex flex-col py-7 px-5 md:px-10 lg:px-20'>
                 <div className='w-full h-auto flex flex-col gap-4'>
                     <h1 className='text-center font-marcellus text-xl md:text-3xl text-[#1A3A37] font-semibold'>Blogs</h1>
                     <p className='text-center text-sm md:px-10 lg:px-20 xl:px-40 2xl:px-60 lg:text-base'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates nulla quas excepturi, exercitationem ipsa beatae nobis id assumenda consequatur, dicta at dolorum alias ullam accusantium. Inventore nam minus necessitatibus minima.</p>
@@ -52,7 +52,7 @@ function BlogPage() {
                 <div className='w-full h-auto flex flex-col mb-10 gap-6 lg:flex-row xl:px-14'>
                     <div className='w-full h-auto flex flex-col lg:w-[65%] xl:w-[70%]'>
                         <div className='w-full h-auto flex'>
-                            <img src={singleBlog?.image} alt="blog image" className='w-full object-cover sm:w-[600px] md:w-[800px] rounded-xl lg:w-full xl:w-[900px] sm:mx-auto' />
+                            <img src={singleBlog?.image} alt="blog image" className='w-full object-cover sm:w-[600px] md:w-[800px] rounded-xl lg:w-full xl:w-[900px] md:h-[400px] sm:mx-auto' />
                         </div>
                         <div className='w-full h-auto flex flex-col mt-4 gap-6 px-2 font-marcellus sm:px-6 sm:mt-8 md:mt-10 md:px-10'>
                             <h1 className='w-full h-auto flex font-bold sm:text-xl md:text-2xl xl:text-4xl'>{singleBlog?.title}</h1>

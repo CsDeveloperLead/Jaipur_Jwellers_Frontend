@@ -15,7 +15,7 @@ import { NavLink } from 'react-router-dom';
 import Main from '../../assets/image1.png'
 import Pedant from '../../assets/Images/Pedant.webp'
 import Earring from '../../assets/Images/earring.webp'
-import Bracelet from '../../assets/Images/bracelet.webp'
+import Bracelet from "../../assets/Images/Bracelet.webp"
 import { useEffect, useRef, useState } from 'react';
 
 
@@ -47,7 +47,7 @@ function LandingPage() {
                     <FaWhatsapp size={20} className='text-white' />
                 </div>
                 <div className='hidden md:flex md:text-white md:text-xs md:items-center lg:text-sm xl:text-base'>
-                    Your way to business success <BsFire size={20} className='mx-1 text-yellow-500' /> Save upto 80% OFF to all premium coded & Design Products
+                    Your way to business success <BsFire size={20} className='mx-1 text-yellow-500' />Save upto 80% Off to all premium coded & Design Products
                 </div>
                 <div className=''>
                     <select name="options" id="options" className="bg-[#1A3A37] outline-none text-white p-2">

@@ -14,12 +14,12 @@ function Team() {
             img: ""
         },
         {
-            name: "Grand Father",
+            name: "Abdul Mubeen",
             role: "First Generation",
             img: ""
         },
         {
-            name: "Father",
+            name: "Abdul Moin",
             role: "Second Generation",
             img: ""
         }

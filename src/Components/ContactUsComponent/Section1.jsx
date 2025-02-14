@@ -71,7 +71,7 @@ function Section1() {
                     <span className='text-2xl xl:text-3xl'>Contact</span>
                     <div className='w-full h-auto flex gap-4 mt-10'>
                         <SlLocationPin size={20} />
-                        <span className='w-[80%] text-xs sm:text-sm xl:text-base'>Lorem ipsum dolor sit amet, consectetur .</span>
+                        <span className='w-[80%] text-xs sm:text-sm xl:text-base'>Lobby Shop hotel The Lalit, Barakhamba Lane,New Delhi -110001</span>
                     </div>
                     <div className='w-full h-auto flex gap-4 items-center mt-5'>
                         <FiPhone size={20} />

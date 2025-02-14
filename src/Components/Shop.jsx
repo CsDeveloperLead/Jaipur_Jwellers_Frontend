@@ -4,7 +4,7 @@ import { RxMixerHorizontal } from "react-icons/rx";
 import { IoIosSearch } from "react-icons/io";
 import { GoHeart } from "react-icons/go";
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const backend = import.meta.env.VITE_BACKEND_URL
 
@@ -16,6 +16,8 @@ function Shop() {
     const [selectedCategory, setSelectedCategory] = useState("Diamond")
     const [allProducts, setAllProducts] = useState([])
     const [selectedImages, setSelectedImages] = useState({});
+
+    const { category } = useLocation().state
 
     async function fetchProducts() {
         try {
@@ -45,6 +47,9 @@ function Shop() {
     }
 
     useEffect(() => {
+        if(category){
+            setSelectedCategory(category)
+        }
         fetchProducts()
         window.scrollTo(0, 0)
     }, [selectedCategory])
@@ -65,11 +70,11 @@ function Shop() {
                         <div className='w-auto h-auto flex gap-1 bg-[#F0F0F1] items-center px-5 rounded-3xl md:w-[400px] lg:w-[350px]'>
                             <IoIosSearch size={25} className='lg:size-8 text-[#B6B6B7]' />
                             <input type="text" placeholder='Search' value={searchProduct} onChange={(e) => setSearchProduct(e.target.value)} className='w-full h-auto bg-transparent outline-none p-2 py-3 text-sm lg:py-4' />
-                           
+
                         </div>
                         <div className='product-slider w-full h-auto flex overflow-scroll font-marcellus gap-3 md:w-auto'>
                             {
-                                ["Diamond", "Jwellery", "Pendant", "Stone", "Bracelet"].map((item, index) => (
+                                ["Diamond", "Jwellery", "Pendant", "Stone", "Bracelet","Ring"].map((item, index) => (
                                     <div key={index} onClick={() => setSelectedCategory(item)} className={`${selectedCategory === item ? 'bg-[#1A3A37] text-[#FEFEFE]' : 'border-[1px] border-[#B6B6B7] text-[#B6B6B7]'} min-w-[110px] h-auto flex justify-center items-center py-2 rounded-xl cursor-pointer lg:py-4 lg:w-[150px] `} >{item}</div>
                                 ))
                             }

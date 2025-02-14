@@ -175,7 +175,6 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                                 value={formData.name}
                                 onChange={handleInputChange}
                                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                required
                             />
                         </div>
                         <div>
@@ -186,7 +185,6 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                                 value={formData.product_id}
                                 onChange={handleInputChange}
                                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                required
                             />
                         </div>
                     </div>
@@ -238,7 +236,6 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                             onChange={handleInputChange}
                             className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                             rows="3"
-                            required
                         />
                     </div>
                     {/* Dimensions */}
@@ -251,7 +248,6 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                                 value={formData.width}
                                 onChange={handleInputChange}
                                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                required
                             />
                         </div>
                         <div>
@@ -262,7 +258,6 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                                 value={formData.height}
                                 onChange={handleInputChange}
                                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                required
                             />
                         </div>
                     </div>
@@ -276,7 +271,6 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                                 value={formData.depth}
                                 onChange={handleInputChange}
                                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                required
                             />
                         </div>
                         <div>
@@ -287,7 +281,6 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                                 value={formData.weight}
                                 onChange={handleInputChange}
                                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                required
                             />
                         </div>
                     </div>
@@ -300,7 +293,6 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                             value={formData.category}
                             onChange={handleInputChange}
                             className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                            required
                         />
                     </div>
                     {/* Model */}
@@ -312,7 +304,6 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                             value={formData.model}
                             onChange={handleInputChange}
                             className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                            required
                         />
                     </div>
                     {/* Quantity and Prices */}
@@ -328,7 +319,6 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                                         handleQuantityPriceChange(index, "quantity", e.target.value)
                                     }
                                     className="flex-1 w-[48%] p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                    required
                                 />
                                 <input
                                     type="number"
@@ -338,7 +328,6 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                                         handleQuantityPriceChange(index, "price", e.target.value)
                                     }
                                     className="flex-1 w-[48%] p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                    required
                                 />
                                 <button
                                     type="button"
@@ -368,7 +357,6 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                                     placeholder={`Detail ${index + 1}`}
                                     onChange={(e) => handleDetailsChange(index, e.target.value)}
                                     className="flex-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                    required
                                 />
                                 <button
                                     type="button"
@@ -396,7 +384,6 @@ const ProductForm = ({ product, closePopup, refreshProducts }) => {
                             value={formData.countInStock}
                             onChange={handleInputChange}
                             className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                            required
                         />
                     </div>
                     {/* Submit and Cancel Buttons */}

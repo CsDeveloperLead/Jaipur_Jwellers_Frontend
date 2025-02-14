@@ -5,7 +5,9 @@ import { MdOutlineMail } from "react-icons/md";
 import { FaInstagram } from "react-icons/fa";
 import { FiTwitter } from "react-icons/fi";
 import { ImFacebook2 } from "react-icons/im";
+import { FaWhatsapp } from "react-icons/fa";
 import axios from 'axios'
+import { NavLink } from 'react-router-dom';
 
 const backend = import.meta.env.VITE_BACKEND_URL
 
@@ -82,9 +84,8 @@ function Section1() {
                     <div className='w-full h-auto flex flex-col mt-10 gap-8 xl:gap-10'>
                         <span className='font-semibold text-xl xl:text-3xl'>Follow us</span>
                         <div className='w-full h-auto flex gap-5 items-center'>
-                            <FaInstagram size={20} className='size-7' />
-                            <FiTwitter size={20} className='size-7' />
-                            <ImFacebook2 size={20} className='size-7' />
+                            <NavLink to={'https://www.instagram.com/jaipur_jewellers.official'} target='_blank'><FaInstagram size={25} className='text-white' /></NavLink>
+                            <NavLink to={'https://wa.link/9zk4fk'} target='_blank'><FaWhatsapp size={25} className='text-white' /></NavLink>
                         </div>
                     </div>
                 </div>

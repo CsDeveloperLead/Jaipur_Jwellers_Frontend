@@ -3,6 +3,7 @@ import LeftQuote from '../../assets/Images/leftQuote.png'
 import RightQuote from '../../assets/Images/rightQuote.png'
 import Star1 from '../../assets/Images/newStar.png'
 import BigStar from '../../assets/Images/bigStar.png'
+import Necklace from '../../assets/Neclace2.png'
 import Person from '../../assets/testimonials/person.jpg'
 import Person2 from '../../assets/testimonials/person2.jpg'
 import Person3 from '../../assets/testimonials/person3.jpg'
@@ -15,39 +16,39 @@ function Testimonial() {
 
     const testimonials = [
         {
-            comment: `"I was mesmerized by the intricate designs and premium quality of the jewelry! Each piece carries the charm of Jaipur's heritage while feeling modern and elegant. I’ve never received so many compliments on my jewelry before!"`,
-            name: 'Ritu Sharma',
+            comment: `"I’ve always admired Jaipur’s craftsmanship, and this brand truly brings its heritage to life! The ring I purchased is not just a piece of jewelry but a work of art. The attention to detail is beyond stunning!"`,
+            name: 'Meera Sharma',
             address: 'Mumbai',
             image: Person
         },
         {
-            comment: `"The gemstones are absolutely stunning and authentic! I could feel the luxury and heritage behind each piece. This is now my go-to place for timeless jewelry that tells a story."`,
-            name: 'Akash Mehta',
-            address: 'Jaipur',
+            comment: `"The bracelet I ordered exceeded all my expectations! The stones are vibrant, and the finish is flawless. You can tell it’s handcrafted with love and precision. I’ll definitely be shopping again!"`,
+            name: 'Skyler',
+            address: 'New York',
             image: Person2
         },
         {
-            comment: `"Shopping here was an amazing experience! The website is beautifully designed and easy to navigate. My order arrived securely packaged, and the jewelry was even more exquisite than I expected. Truly a slice of Jaipur’s royal craftsmanship!"`,
-            name: 'Sarah Thompson',
-            address: 'London, UK',
+            comment: `"Wearing their jewelry makes me feel like royalty! The pendant I received is elegant, lightweight, and absolutely gorgeous. The packaging was luxurious too—such a premium experience!"`,
+            name: 'Kristina Williams',
+            address: 'Canada',
             image: Person3
         },
         {
-            comment: `"The attention to detail in their jewelry is unmatched. The mix of heritage and luxury makes each piece one-of-a-kind. Their customer service is exceptional, making every purchase feel special."`,
-            name: 'Priya Verma',
-            address: 'Delhi',
+            comment: `"I was unsure about my ring size, but their team was super helpful and guided me through the process. The delivery was on time, and the piece was even more stunning in person. Amazing service!"`,
+            name: 'Shreya',
+            address: 'Jaipur',
             image: Person4
         },
         {
-            comment: `"I bought a gemstone necklace for my wife’s birthday, and she absolutely loved it. The design is elegant, and the quality is top-notch. It’s like owning a piece of Rajasthan’s royal history!"`,
-            name: 'Arjun Malhotra',
-            address: 'Bangalore',
+            comment: `"I bought a pair of stud earrings for my wife, and she absolutely loved them! The intricate design and high-quality gemstones made it the perfect anniversary gift. Highly recommended!"`,
+            name: 'Sandeep Khanna',
+            address: 'Pune',
             image: Person5
         },
         {
-            comment: `"I discovered this jewelry store during my visit to Jaipur and was thrilled to find I could shop online as well. The blend of tradition and modern luxury is breathtaking. Shipping was prompt, and the packaging made me feel like royalty!"`,
-            name: 'Emily Williams',
-            address: 'Sydney, Australia',
+            comment: `"I was hesitant to buy fine jewelry online, but this brand proved me wrong. The craftsmanship, authenticity, and overall experience were fantastic. My bracelet is simply breathtaking!"`,
+            name: 'Nikhil',
+            address: 'Hyderabad',
             image: Person6
         }
     ]
@@ -87,7 +88,7 @@ function Testimonial() {
                     </div>
                 </div>
                 <div className='w-full h-[80vh] flex justify-center items-center relative md:h-[60vh] md:w-[50vw] lg:w-[40vw]'>
-                    <img src="" alt="" className='w-[80%] h-[80%] bg-gray-200 rounded-xl sm:w-[50%] md:w-[80%] lg:w-[50%] xl:h-[90%]' />
+                    <img src={Necklace} alt="Necklace image" className='w-[80%] h-[80%] object-cover rounded-3xl sm:w-[50%] md:w-[80%] lg:w-[50%] xl:h-[90%]' />
                     <img src={Star1} alt="star" className='w-10 h-10 absolute bottom-20 left-12 sm:left-44 md:left-10 md:bottom-12 lg:left-32 xl:left-40 2xl:bottom-10' />
                     <img src={BigStar} alt="star" className='w-24 h-24 absolute top-10 right-10 sm:right-44 md:right-5 md:top-6 lg:right-28 lg:w-28 lg:h-28 lg:top-0 xl:right-32 xl:w-40 xl:h-40 xl:-top-5' />
                     <img src={Star1} alt="star" className='hidden md:block md:absolute md:top-0 md:w-5 md:h-5 md:right-20 lg:right-48 lg:w-8 lg:h-8 xl:right-60 lg:-top-10' />

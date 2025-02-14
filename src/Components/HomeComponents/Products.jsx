@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { GoHeart } from "react-icons/go";
 import { NavLink } from 'react-router-dom';
+import Necklace from '../../assets/neclace.png'
 
 function Products({ data }) {
     const [products, setProducts] = useState([])
@@ -78,7 +79,7 @@ function Products({ data }) {
                     </div>
                 </div>
                 <div className='w-full h-[90vh] flex items-center justify-center relative md:my-5 xl:w-[40vw] xl:items-end xl:h-auto xl:my-0'>
-                    <img src="" alt="" className='w-[80%] h-[80%] bg-gray-400 rounded-[100px] sm:w-[50%] md:h-full md:w-[50%] lg:w-[40%] xl:w-[60%] xl:h-[90%]' />
+                    <img src={Necklace} alt="necklace" className='w-[80%] h-[80%] rounded-[100px] sm:w-[50%] md:h-full md:w-[50%] lg:w-[40%] xl:w-[60%] xl:h-[90%] object-cover' />
                     <NavLink state={{ product: floatingProducts?.[0] }} to={`/single-product/${floatingProducts[0]?._id}`} className='absolute flex p-1 bg-white rounded-lg bottom-32 right-5 shadow-md sm:right-36 md:right-48 lg:right-60 xl:right-10'>
                         <img src={floatingProducts[0]?.Image} alt="image" className='w-16 h-16 bg-gray-200 rounded-lg md:h-20 md:w-20 xl:w-16 xl:h-16' />
                         <div className='w-auto h-auto flex flex-col px-4 justify-between pb-2:'>

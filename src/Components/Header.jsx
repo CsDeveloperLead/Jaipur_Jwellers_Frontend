@@ -16,7 +16,7 @@ import { BsCollection } from "react-icons/bs";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaBloggerB } from "react-icons/fa6";
 import { IoMdContacts } from "react-icons/io";
-import logo from '../assets/logo1.png'
+import logo from '../assets/logo2.png'
 
 
 function Header({ color }) {
@@ -90,9 +90,9 @@ function Header({ color }) {
 
     return (
         <>
-            <header className='w-full h-16 items-center flex justify-between p-4 relative z-50' style={{ backgroundColor: color }}>
-                <div className=' w-[100px] h-[50px] font-marcellus'>
-                    <img src={logo} alt="" className='w-full h-full' />
+            <header className='w-full h-24 items-center flex justify-between p-4 relative z-50' style={{ backgroundColor: color }}>
+                <div className=' w-[100px] h-[80px] mt-6 font-marcellus'>
+                    <img src={logo} alt="" className='w-full h-full object-cover' />
 
                 </div>
                 <div className='hidden lg:flex lg:font-marcellus lg:gap-10 lg:ml-20 xl:60 xl:gap-16 2xl:gap-20'>
@@ -100,8 +100,8 @@ function Header({ color }) {
                     <a href='#collections' className='cursor-pointer'>Collection</a>
                     <NavLink to='/shop' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Shop</NavLink>
                     <NavLink to='/blog' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Blog</NavLink>
-                    <NavLink to='/contact-us' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Contact Us</NavLink>
                     <NavLink to='/about' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>About</NavLink>
+                    <NavLink to='/contact-us' className={({ isActive }) => `${isActive ? 'text-[#1A3A37]' : 'text-black'} cursor-pointer`}>Contact Us</NavLink>
                 </div>
 
                 {

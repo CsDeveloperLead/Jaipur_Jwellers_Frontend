@@ -32,22 +32,25 @@ function LandingPage() {
     }, []);
 
     const carousal = [
-        { id: 1, src: Main, alt: "Picture 1" },
-        { id: 2, src: Pedant, alt: "Picture 2" },
-        { id: 3, src: Earring, alt: "Picture 3" },
-        { id: 4, src: Bracelet, alt: "Picture 4" }
+        { id: 1, src: Main, alt: "Picture 1", title: 'Bracelets Collection', content: 'Wrap Your Wrist in Elegance', otherContent: 'Handcrafted Bracelets That Tell a Story' },
+        { id: 2, src: Pedant, alt: "Picture 2", title: 'Rings Collection', content: 'A Circle of Timeless Beauty', otherContent: 'Rings That Symbolize Love, Power & Tradition.' },
+        { id: 3, src: Earring, alt: "Picture 3", title: 'Earrings (Studs) Collection', content: 'Small in Size, Grand in Elegance', otherContent: 'Jaipur’s Finest Stud Earrings for Every Occasion.' },
+        { id: 4, src: Bracelet, alt: "Picture 4", title: 'Pendants Collection', content: 'Wear Your Story Close to Your Heart', otherContent: 'Discover Handcrafted Pendants That Speak to You.' }
     ];
+
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
 
     return (
         <>
             <div className='w-full h-10 bg-[#1A3A37] flex items-center justify-between px-5 font-marcellus relative z-50 xl:h-12'>
                 <div className='flex gap-4'>
-                    <FaFacebookF size={20} className='text-white' />
-                    <FaInstagram size={20} className='text-white' />
-                    <FaWhatsapp size={20} className='text-white' />
+                    <NavLink to={'https://www.instagram.com/jaipur_jewellers.official'} target='_blank'><FaInstagram size={20} className='text-white' /></NavLink>
+                    <NavLink to={'https://wa.link/9zk4fk'} target='_blank'><FaWhatsapp size={20} className='text-white' /></NavLink>
                 </div>
                 <div className='hidden md:flex md:text-white md:text-xs md:items-center lg:text-sm xl:text-base'>
-                    Your way to business success <BsFire size={20} className='mx-1 text-yellow-500' />Save upto 80% Off to all premium coded & Design Products
+                    ✨ From the Heart of Jaipur to Your Hands – Timeless Jewelry, Crafted for You. ✨
                 </div>
                 <div className=''>
                     <select name="options" id="options" className="bg-[#1A3A37] outline-none text-white p-2">
@@ -73,11 +76,11 @@ function LandingPage() {
                                 </div>
                                 <div className='absolute top-0 w-full h-[75vh] md:relative '>
                                     <div className='flex flex-col absolute top-20 left-6 sm:left-40 md:left-20'>
-                                        <span className='text-[#1A3A37] tracking-[3px]'>Glamorous Life</span>
-                                        <div className='flex flex-col px-2 text-4xl my-3 gap-3 sm:text-5xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl'>
-                                            <span>EMBRACE THE</span>
-                                            <span>UNSEEN MAGIC OF</span>
-                                            <span>UNIQUENESS</span>
+                                        <span className='text-[#1A3A37] tracking-[3px]'>{item.title}</span>
+                                        <div className='flex flex-col px-2 text-4xl my-3 gap-3 sm:text-5xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl w-[500px]'>
+                                            {
+                                                item.content
+                                            }
                                         </div>
                                         <div className='mt-5'>
                                             <NavLink to='/shop' className='py-2 bg-[#1A3A37] text-white rounded-xl text-lg flex justify-center items-center gap-3 w-44 cursor-pointer'>
@@ -90,8 +93,8 @@ function LandingPage() {
                                     <img src={Star3} alt="star 1" className='absolute top-72 right-16 sm:right-32 md:right-16 lg:top-28 lg:right-52 lg:w-5 xl:right-72 2xl:top-32' />
                                     <img src={Star3} alt="star 1" className='hidden lg:absolute lg:block lg:bottom-20 lg:right-20 lg:w-5' />
                                     <img src={Star3} alt="star 1" className='hidden lg:absolute lg:block lg:bottom-40 lg:right-72 lg:w-5 xl:bottom-48 xl:right-96' />
-                                    <div className='w-40 h-auto bottom-20 absolute right-10 text-xs sm:right-32 md:right-5 lg:w-56 lg:bottom-40 xl:bottom-48 xl:right-20'>
-                                        <p>Vestibulum augue nibh, elementum eget ante nec, consectetur viverra leo. Curabitur sitamet dignissim erat.</p>
+                                    <div className='w-40 h-auto bottom-20 absolute right-10 text-xl sm:right-32 md:right-5 lg:w-56 lg:bottom-40 xl:bottom-48 xl:right-20'>
+                                        <p>{item.otherContent}</p>
                                     </div>
                                     <img src="" alt="image" className='hidden md:block absolute w-20 h-20 bottom-10 left-56 bg-blue-100 rounded-lg lg:left-80 xl:left-96' />
                                     <img src="" alt="image" className='hidden md:block absolute w-20 h-20 top-20 right-10 bg-blue-100 rounded-lg 2xl:top-32 2xl:right-32' />
@@ -100,100 +103,6 @@ function LandingPage() {
                             </div>
                         ))
                     }
-
-                    {/* <div className='min-w-full h-auto flex flex-col bg-[#D7D7D7] relative md:flex-row font-marcellus'>
-                        <div className='w-full h-[75vh] flex md:w-[70vw] md:items-center md:justify-center overflow-hidden'>
-                            <img src={Main} alt="Picture 1" className='w-full h-full hidden md:flex md:justify-center md:items-center md:h-[300px] md:w-[300px] md:rounded-3xl xl:w-[400px] xl:h-[400px]' />
-                        </div>
-                        <div className='absolute top-0 w-full h-[75vh] md:relative '>
-                            <div className='flex flex-col absolute top-20 left-6 sm:left-40 md:left-20'>
-                                <span className='text-[#1A3A37] tracking-[3px]'>Glamorous Life</span>
-                                <div className='flex flex-col px-2 text-4xl my-3 gap-3 sm:text-5xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl'>
-                                    <span>EMBRACE THE</span>
-                                    <span>UNSEEN MAGIC OF</span>
-                                    <span>UNIQUENESS</span>
-                                </div>
-                                <div className='mt-5'>
-                                    <NavLink to='/about' className='py-2 bg-[#1A3A37] text-white rounded-xl text-lg flex justify-center items-center gap-3 w-44 cursor-pointer'>
-                                        Know More <span className='w-7 h-7 bg-white flex justify-center items-center rounded-full'><FaArrowRightLong size={15} className='text-[#1A3A37]' /></span>
-                                    </NavLink>
-                                </div>
-                            </div>
-                            <img src={Star1} alt="star 1" className='absolute top-10 left-16 sm:left-40 md:left-16 lg:top-7 lg:left-7 lg:w-7' />
-                            <img src={Star2} alt="star 1" className='absolute bottom-20 left-16 sm:left-40 md:left-16 lg:top-20 lg:left-60 lg:w-3' />
-                            <img src={Star3} alt="star 1" className='absolute top-72 right-16 sm:right-32 md:right-16 lg:top-28 lg:right-52 lg:w-5 xl:right-72 2xl:top-32' />
-                            <img src={Star3} alt="star 1" className='hidden lg:absolute lg:block lg:bottom-20 lg:right-20 lg:w-5' />
-                            <img src={Star3} alt="star 1" className='hidden lg:absolute lg:block lg:bottom-40 lg:right-72 lg:w-5 xl:bottom-48 xl:right-96' />
-                            <div className='w-40 h-auto bottom-20 absolute right-10 text-xs sm:right-32 md:right-5 lg:w-56 lg:bottom-40 xl:bottom-48 xl:right-20'>
-                                <p>Vestibulum augue nibh, elementum eget ante nec, consectetur viverra leo. Curabitur sitamet dignissim erat.</p>
-                            </div>
-                            <img src="" alt="image" className='hidden md:block absolute w-20 h-20 bottom-10 left-56 bg-blue-100 rounded-lg lg:left-80 xl:left-96' />
-                            <img src="" alt="image" className='hidden md:block absolute w-20 h-20 top-20 right-10 bg-blue-100 rounded-lg 2xl:top-32 2xl:right-32' />
-                            <img src="" alt="image" className='hidden xl:block xl:absolute xl:w-20 xl:h-20 xl:top-0 xl:right-80 xl:bg-blue-100 xl:rounded-lg 2xl:right-96' />
-                        </div>
-                    </div>
-                    <div className='min-w-full h-auto flex flex-col bg-[#D7D7D7] relative md:flex-row font-marcellus'>
-                        <div className='w-full h-[75vh] flex md:w-[70vw] md:items-center md:justify-center overflow-hidden'>
-                            <img src={Main} alt="Picture 1" className='w-full h-full hidden md:flex md:justify-center md:items-center md:h-[300px] md:w-[300px] md:rounded-3xl xl:w-[400px] xl:h-[400px]' />
-                        </div>
-                        <div className='absolute top-0 w-full h-[75vh] md:relative '>
-                            <div className='flex flex-col absolute top-20 left-6 sm:left-40 md:left-20'>
-                                <span className='text-[#1A3A37] tracking-[3px]'>Glamorous Life</span>
-                                <div className='flex flex-col px-2 text-4xl my-3 gap-3 sm:text-5xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl'>
-                                    <span>EMBRACE THE</span>
-                                    <span>UNSEEN MAGIC OF</span>
-                                    <span>UNIQUENESS</span>
-                                </div>
-                                <div className='mt-5'>
-                                    <NavLink to='/about' className='py-2 bg-[#1A3A37] text-white rounded-xl text-lg flex justify-center items-center gap-3 w-44 cursor-pointer'>
-                                        Know More <span className='w-7 h-7 bg-white flex justify-center items-center rounded-full'><FaArrowRightLong size={15} className='text-[#1A3A37]' /></span>
-                                    </NavLink>
-                                </div>
-                            </div>
-                            <img src={Star1} alt="star 1" className='absolute top-10 left-16 sm:left-40 md:left-16 lg:top-7 lg:left-7 lg:w-7' />
-                            <img src={Star2} alt="star 1" className='absolute bottom-20 left-16 sm:left-40 md:left-16 lg:top-20 lg:left-60 lg:w-3' />
-                            <img src={Star3} alt="star 1" className='absolute top-72 right-16 sm:right-32 md:right-16 lg:top-28 lg:right-52 lg:w-5 xl:right-72 2xl:top-32' />
-                            <img src={Star3} alt="star 1" className='hidden lg:absolute lg:block lg:bottom-20 lg:right-20 lg:w-5' />
-                            <img src={Star3} alt="star 1" className='hidden lg:absolute lg:block lg:bottom-40 lg:right-72 lg:w-5 xl:bottom-48 xl:right-96' />
-                            <div className='w-40 h-auto bottom-20 absolute right-10 text-xs sm:right-32 md:right-5 lg:w-56 lg:bottom-40 xl:bottom-48 xl:right-20'>
-                                <p>Vestibulum augue nibh, elementum eget ante nec, consectetur viverra leo. Curabitur sitamet dignissim erat.</p>
-                            </div>
-                            <img src="" alt="image" className='hidden md:block absolute w-20 h-20 bottom-10 left-56 bg-blue-100 rounded-lg lg:left-80 xl:left-96' />
-                            <img src="" alt="image" className='hidden md:block absolute w-20 h-20 top-20 right-10 bg-blue-100 rounded-lg 2xl:top-32 2xl:right-32' />
-                            <img src="" alt="image" className='hidden xl:block xl:absolute xl:w-20 xl:h-20 xl:top-0 xl:right-80 xl:bg-blue-100 xl:rounded-lg 2xl:right-96' />
-                        </div>
-                    </div>
-                    <div className='min-w-full h-auto flex flex-col bg-[#D7D7D7] relative md:flex-row font-marcellus'>
-                        <div className='w-full h-[75vh] flex md:w-[70vw] md:items-center md:justify-center overflow-hidden'>
-                            <img src={Main} alt="Picture 1" className='w-full h-full hidden md:flex md:justify-center md:items-center md:h-[300px] md:w-[300px] md:rounded-3xl xl:w-[400px] xl:h-[400px]' />
-                        </div>
-                        <div className='absolute top-0 w-full h-[75vh] md:relative '>
-                            <div className='flex flex-col absolute top-20 left-6 sm:left-40 md:left-20'>
-                                <span className='text-[#1A3A37] tracking-[3px]'>Glamorous Life</span>
-                                <div className='flex flex-col px-2 text-4xl my-3 gap-3 sm:text-5xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl'>
-                                    <span>EMBRACE THE</span>
-                                    <span>UNSEEN MAGIC OF</span>
-                                    <span>UNIQUENESS</span>
-                                </div>
-                                <div className='mt-5'>
-                                    <NavLink to='/about' className='py-2 bg-[#1A3A37] text-white rounded-xl text-lg flex justify-center items-center gap-3 w-44 cursor-pointer'>
-                                        Know More <span className='w-7 h-7 bg-white flex justify-center items-center rounded-full'><FaArrowRightLong size={15} className='text-[#1A3A37]' /></span>
-                                    </NavLink>
-                                </div>
-                            </div>
-                            <img src={Star1} alt="star 1" className='absolute top-10 left-16 sm:left-40 md:left-16 lg:top-7 lg:left-7 lg:w-7' />
-                            <img src={Star2} alt="star 1" className='absolute bottom-20 left-16 sm:left-40 md:left-16 lg:top-20 lg:left-60 lg:w-3' />
-                            <img src={Star3} alt="star 1" className='absolute top-72 right-16 sm:right-32 md:right-16 lg:top-28 lg:right-52 lg:w-5 xl:right-72 2xl:top-32' />
-                            <img src={Star3} alt="star 1" className='hidden lg:absolute lg:block lg:bottom-20 lg:right-20 lg:w-5' />
-                            <img src={Star3} alt="star 1" className='hidden lg:absolute lg:block lg:bottom-40 lg:right-72 lg:w-5 xl:bottom-48 xl:right-96' />
-                            <div className='w-40 h-auto bottom-20 absolute right-10 text-xs sm:right-32 md:right-5 lg:w-56 lg:bottom-40 xl:bottom-48 xl:right-20'>
-                                <p>Vestibulum augue nibh, elementum eget ante nec, consectetur viverra leo. Curabitur sitamet dignissim erat.</p>
-                            </div>
-                            <img src="" alt="image" className='hidden md:block absolute w-20 h-20 bottom-10 left-56 bg-blue-100 rounded-lg lg:left-80 xl:left-96' />
-                            <img src="" alt="image" className='hidden md:block absolute w-20 h-20 top-20 right-10 bg-blue-100 rounded-lg 2xl:top-32 2xl:right-32' />
-                            <img src="" alt="image" className='hidden xl:block xl:absolute xl:w-20 xl:h-20 xl:top-0 xl:right-80 xl:bg-blue-100 xl:rounded-lg 2xl:right-96' />
-                        </div>
-                    </div> */}
                 </div>
                 <div className='w-full h-auto flex gap-3 font-marcellus justify-center items-center text-sm absolute bottom-10 lg:bottom-14 xl:text-base'>
                     <span onClick={() => setCurrentIndex((prevIndex) => prevIndex === 0 ? 3 : (prevIndex - 1) % 4)} className='cursor-pointer'><LuMoveLeft size={15} /></span>
@@ -204,17 +113,17 @@ function LandingPage() {
             <div className='w-full h-10 bg-[#1A3A37] py-1.5 text-white font-marcellus flex items-center lg:h-12'>
                 <Marquee direction='left' speed={70} className=''>
                     <img src={Shine} alt="shine" className='w-10' />
+                    <span className='mx-6'>Exclusive Discounts on Jaipur’s Finest Jewellery ! Celebrate the Festivities with Extra Sparkle !</span>
+                    <img src={Shine} alt="shine" className='w-10' />
+                    <span className='mx-6'>Exclusive Discounts on Jaipur’s Finest Jewellery ! Celebrate the Festivities with Extra Sparkle !</span>
+                    <img src={Shine} alt="shine" className='w-10' />
+                    <span className='mx-6'>Exclusive Discounts on Jaipur’s Finest Jewellery ! Celebrate the Festivities with Extra Sparkle !</span>
+                    {/* <img src={Shine} alt="shine" className='w-10' />
                     <span className='mx-6'>Upto 30% Off On First Purchase</span>
                     <img src={Shine} alt="shine" className='w-10' />
                     <span className='mx-6'>Upto 30% Off On First Purchase</span>
                     <img src={Shine} alt="shine" className='w-10' />
-                    <span className='mx-6'>Upto 30% Off On First Purchase</span>
-                    <img src={Shine} alt="shine" className='w-10' />
-                    <span className='mx-6'>Upto 30% Off On First Purchase</span>
-                    <img src={Shine} alt="shine" className='w-10' />
-                    <span className='mx-6'>Upto 30% Off On First Purchase</span>
-                    <img src={Shine} alt="shine" className='w-10' />
-                    <span className='mx-6'>Upto 30% Off On First Purchase</span>
+                    <span className='mx-6'>Upto 30% Off On First Purchase</span> */}
                 </Marquee>
             </div>
         </>

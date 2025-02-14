@@ -38,6 +38,7 @@ function BlogPage() {
 
     useEffect(() => {
         fetchBlogs()
+        window.scrollTo(0, 0)
     }, [])
 
     return (
@@ -46,7 +47,7 @@ function BlogPage() {
             <div className='w-full h-auto flex flex-col py-7 px-5 md:px-10 lg:px-20'>
                 <div className='w-full h-auto flex flex-col gap-4'>
                     <h1 className='text-center font-marcellus text-xl md:text-3xl text-[#1A3A37] font-semibold'>Blogs</h1>
-                    <p className='text-center text-sm md:px-10 lg:px-20 xl:px-40 2xl:px-60 lg:text-base'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates nulla quas excepturi, exercitationem ipsa beatae nobis id assumenda consequatur, dicta at dolorum alias ullam accusantium. Inventore nam minus necessitatibus minima.</p>
+                    <p className='text-center text-sm md:px-10 lg:px-20 xl:px-40 2xl:px-60 lg:text-base'>Step into the world of fine jewelry, where Jaipur’s rich heritage meets modern elegance. Discover the stories behind our craftsmanship, explore timeless traditions, stay updated on the latest trends, and find expert styling tips to make every piece shine.</p>
                 </div>
                 <div className='my-7 w-full h-[1px] bg-[#1A3A37]' />
                 <div className='w-full h-auto flex flex-col mb-10 gap-6 lg:flex-row xl:px-14'>

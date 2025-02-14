@@ -8,25 +8,25 @@ function Info() {
     const content = [
         {
             image: Customer,
-            number: "100",
-            title: "Happy Customers",
+            number: "24+",
+            title: "Master Craftsmen",
             description: "Where Elegance Finds Its Extraordinary Artistry Who Crave a One-of-a-Kind Sparkle."
         },
         {
             image: Business,
-            number: "05",
-            title: "Business Owned",
+            number: "5+",
+            title: "Store Locations",
             description: "Captivatingly Classy Jewelry for the Discerning Unveiling the Essence of Timelessness."
         },
         {
             image: Ring,
-            number: "1k",
+            number: "10k+",
             title: "Happy Customers",
             description: "Exceptional Craftsmanship, Unparalleled Elegance Where Effortless Glamour Meets Class."
         },
         {
             image: Designs,
-            number: "15k",
+            number: "15k+",
             title: "New Designs",
             description: "Accessorize Your Life with Fierce Charisma For Those Who Dare to Shine Bright."
         },

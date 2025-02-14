@@ -46,6 +46,7 @@ function Shop() {
 
     useEffect(() => {
         fetchProducts()
+        window.scrollTo(0, 0)
     }, [selectedCategory])
 
     useEffect(() => {

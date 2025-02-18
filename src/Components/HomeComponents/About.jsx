@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import SignImg from '../../assets/sign.png';
 import Pedant from '../../assets/Images/Pedant.webp';
 import Perls from '../../assets/Images/Perls.webp';
-import Bracelet from "../../assets/Images/Bracelet.webp";
+import Bracelet from "../../assets/Images/Bracelet.jpg";
 import NeckLes from "../../assets/Images/Neckles.webp";
 import Stone from "../../assets/Images/Stone.webp";
 

@@ -15,11 +15,11 @@ import { NavLink } from 'react-router-dom';
 import Main from '../../assets/image1.png'
 import Pedant from '../../assets/Images/Pedant.webp'
 import Earring from '../../assets/Images/earring.webp'
-import Bracelet from "../../assets/Images/Bracelet.webp"
+import Bracelet from "../../assets/Images/Bracelet.jpg"
 import { useEffect, useRef, useState } from 'react';
 import diamond from '../../assets/Images/diamond.jpg'
 import Gemstone from '../../assets/Images/gemstone.jpg'
-import Gold from '../../assets/Images/Gold.jpg';
+import Gold from '../../assets/Images/gold.jpg';
 function LandingPage() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const sliderRef = useRef(null);

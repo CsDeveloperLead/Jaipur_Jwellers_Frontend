@@ -16,10 +16,23 @@ import Main from '../../assets/image1.png'
 import Pedant from '../../assets/Images/Pedant.webp'
 import Earring from '../../assets/Images/earring.webp'
 import Bracelet from "../../assets/Images/Bracelet.jpg"
+
 import { useEffect, useRef, useState } from 'react';
 import diamond from '../../assets/Images/diamond.jpg'
 import Gemstone from '../../assets/Images/gemstone.jpg'
 import Gold from '../../assets/Images/gold.jpg';
+import B1 from '../../assets/Bracelet/b1.jpg';
+import B2 from '../../assets/Bracelet/b2.jpg';
+import B3 from '../../assets/Bracelet/b3.jpg';
+import R1 from '../../assets/Rings/r1.jpg';
+import R2 from '../../assets/Rings/r2.jpg';
+import R3 from '../../assets/Rings/r3.jpg';
+import ER1 from '../../assets/Earrings/er1.jpg';
+import ER2 from '../../assets/Earrings/er2.jpg';
+import ER3 from '../../assets/Earrings/er3.jpg';
+import P1 from '../../assets/Pendants/p1.jpg';
+import P2 from '../../assets/Pendants/p2.jpg';
+import P3 from '../../assets/Pendants/p3.jpg';
 function LandingPage() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const sliderRef = useRef(null);
@@ -33,10 +46,10 @@ function LandingPage() {
     }, []);
 
     const carousal = [
-        { id: 1, src: Main, alt: "Picture 1", title: 'Bracelets Collection', content: 'Wrap Your Wrist in Elegance', otherContent: 'Handcrafted Bracelets That Tell a Story' },
-        { id: 2, src: Pedant, alt: "Picture 2", title: 'Rings Collection', content: 'A Circle of Timeless Beauty', otherContent: 'Rings That Symbolize Love, Power & Tradition.' },
-        { id: 3, src: Earring, alt: "Picture 3", title: 'Earrings (Studs) Collection', content: 'Small in Size, Grand in Elegance', otherContent: 'Jaipur’s Finest Stud Earrings for Every Occasion.' },
-        { id: 4, src: Bracelet, alt: "Picture 4", title: 'Pendants Collection', content: 'Wear Your Story Close to Your Heart', otherContent: 'Discover Handcrafted Pendants That Speak to You.' }
+        { id: 1, src: Main, alt: "Picture 1", title: 'Bracelets Collection', content: 'Wrap Your Wrist in Elegance', otherContent: 'Handcrafted Bracelets That Tell a Story',Category1:B1,Category2: B2,Category3: B3 },
+        { id: 2, src: Pedant, alt: "Picture 2", title: 'Rings Collection', content: 'A Circle of Timeless Beauty', otherContent: 'Rings That Symbolize Love, Power & Tradition.',Category1: R1,Category2: R2,Category3: R3},
+        { id: 3, src: Earring, alt: "Picture 3", title: 'Earrings (Studs) Collection', content: 'Small in Size, Grand in Elegance', otherContent: 'Jaipur’s Finest Stud Earrings for Every Occasion.',Category1: ER1,Category2: ER2,Category3: ER3 },
+        { id: 4, src: Bracelet, alt: "Picture 4", title: 'Pendants Collection', content: 'Wear Your Story Close to Your Heart', otherContent: 'Discover Handcrafted Pendants That Speak to You.',Category1: P1,Category2: P2,Category3: P3 }
     ];
 
     useEffect(()=>{
@@ -97,9 +110,9 @@ function LandingPage() {
                                     <div className='w-40 h-auto bottom-20 absolute right-10 text-xl sm:right-32 md:right-5 lg:w-56 lg:bottom-40 xl:bottom-48 xl:right-20'>
                                         <p>{item.otherContent}</p>
                                     </div>
-                                    <img src={diamond} alt="image" className='hidden md:block absolute w-20 h-20 bottom-10 left-56 bg-blue-100 rounded-lg lg:left-80 xl:left-96' />
-                                    <img src={Gemstone} alt="image" className='hidden md:block absolute w-20 h-20 top-20 right-10 bg-blue-100 rounded-lg 2xl:top-32 2xl:right-32' />
-                                    <img src={Gold} alt="image" className='hidden xl:block xl:absolute xl:w-20 xl:h-20 xl:top-0 xl:right-80 xl:bg-blue-100 xl:rounded-lg 2xl:right-96' />
+                                    <img src={item.Category1} alt="image" className='hidden md:block absolute w-20 h-20 bottom-10 left-56 bg-blue-100 rounded-lg lg:left-80 xl:left-96' />
+                                    <img src={item.Category2} alt="image" className='hidden md:block absolute w-20 h-20 top-20 right-10 bg-blue-100 rounded-lg 2xl:top-32 2xl:right-32' />
+                                    <img src={item.Category3} alt="image" className='hidden xl:block xl:absolute xl:w-20 xl:h-20 xl:top-0 xl:right-80 xl:bg-blue-100 xl:rounded-lg 2xl:right-96' />
                                 </div>
                             </div>
                         ))

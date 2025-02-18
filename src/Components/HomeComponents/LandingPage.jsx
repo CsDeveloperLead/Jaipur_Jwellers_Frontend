@@ -18,7 +18,7 @@ import Earring from '../../assets/Images/earring.webp'
 import Bracelet from "../../assets/Images/Bracelet.webp"
 import { useEffect, useRef, useState } from 'react';
 import diamond from '../../assets/Images/diamond.jpg'
-import Gemstone from '../../assets/Images/Gemstone.jpg'
+import Gemstone from '../../assets/Images/gemstone.jpg'
 import Gold from '../../assets/Images/Gold.jpg';
 function LandingPage() {
     const [currentIndex, setCurrentIndex] = useState(0);

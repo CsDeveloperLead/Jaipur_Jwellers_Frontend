@@ -14,15 +14,16 @@ function Team() {
             img: ""
         },
         {
+            name: "Abdul Moin",
+            role: "Second Generation",
+            img: ""
+        },
+        {
             name: "Abdul Mubeen",
             role: "First Generation",
             img: ""
         },
-        {
-            name: "Abdul Moin",
-            role: "Second Generation",
-            img: ""
-        }
+      
     ]
 
     return (

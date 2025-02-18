@@ -17,8 +17,9 @@ import Pedant from '../../assets/Images/Pedant.webp'
 import Earring from '../../assets/Images/earring.webp'
 import Bracelet from "../../assets/Images/Bracelet.webp"
 import { useEffect, useRef, useState } from 'react';
-
-
+import diamond from '../../assets/Images/diamond.jpg'
+import Gemstone from '../../assets/Images/Gemstone.jpg'
+import Gold from '../../assets/Images/Gold.jpg';
 function LandingPage() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const sliderRef = useRef(null);
@@ -96,9 +97,9 @@ function LandingPage() {
                                     <div className='w-40 h-auto bottom-20 absolute right-10 text-xl sm:right-32 md:right-5 lg:w-56 lg:bottom-40 xl:bottom-48 xl:right-20'>
                                         <p>{item.otherContent}</p>
                                     </div>
-                                    <img src="" alt="image" className='hidden md:block absolute w-20 h-20 bottom-10 left-56 bg-blue-100 rounded-lg lg:left-80 xl:left-96' />
-                                    <img src="" alt="image" className='hidden md:block absolute w-20 h-20 top-20 right-10 bg-blue-100 rounded-lg 2xl:top-32 2xl:right-32' />
-                                    <img src="" alt="image" className='hidden xl:block xl:absolute xl:w-20 xl:h-20 xl:top-0 xl:right-80 xl:bg-blue-100 xl:rounded-lg 2xl:right-96' />
+                                    <img src={diamond} alt="image" className='hidden md:block absolute w-20 h-20 bottom-10 left-56 bg-blue-100 rounded-lg lg:left-80 xl:left-96' />
+                                    <img src={Gemstone} alt="image" className='hidden md:block absolute w-20 h-20 top-20 right-10 bg-blue-100 rounded-lg 2xl:top-32 2xl:right-32' />
+                                    <img src={Gold} alt="image" className='hidden xl:block xl:absolute xl:w-20 xl:h-20 xl:top-0 xl:right-80 xl:bg-blue-100 xl:rounded-lg 2xl:right-96' />
                                 </div>
                             </div>
                         ))

@@ -16,10 +16,9 @@ function Shop() {
     const [selectedCategory, setSelectedCategory] = useState("Diamond")
     const [allProducts, setAllProducts] = useState([])
     const [selectedImages, setSelectedImages] = useState({});
-
-    const { category } = useLocation().state
-
-    async function fetchProducts() {
+    const location = useLocation();
+    const category = location.state?.category
+      async function fetchProducts() {
         try {
             setLoading(true)
             const response = await axios.get(`${backend}/api/v1/products/get-all-products`)
